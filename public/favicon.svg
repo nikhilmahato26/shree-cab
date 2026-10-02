@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#0F172A"/>
+  <!-- Road lines / badge -->
+  <path d="M12 48L24 16H40L52 48H12Z" fill="#1E293B"/>
+  <path d="M30 20L31 28H33L34 20H30Z" fill="#EA580C"/>
+  <path d="M29 32L28 42H36L35 32H29Z" fill="#EA580C"/>
+  <!-- Cab silhouette -->
+  <path d="M18 42C18 39.5 20 37.5 22.5 37.5H41.5C44 37.5 46 39.5 46 42V45C46 46.1 45.1 47 44 47H43V48C43 49.1 42.1 50 41 50H39C37.9 50 37 49.1 37 48V47H27V48C27 49.1 26.1 50 25 50H23C21.9 50 21 49.1 21 48V47H20C18.9 47 18 46.1 18 45V42Z" fill="#F8FAFC"/>
+  <!-- Taxi light on roof -->
+  <rect x="28" y="34.5" width="8" height="3" rx="1" fill="#EA580C"/>
+  <circle cx="23" cy="43.5" r="2.5" fill="#EA580C"/>
+  <circle cx="41" cy="43.5" r="2.5" fill="#EA580C"/>
+</svg>
