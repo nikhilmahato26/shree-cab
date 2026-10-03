@@ -1,77 +1,141 @@
 import React from 'react';
-import { Car, Navigation, MapPin, Compass, Users, Bus, ArrowUpRight } from 'lucide-react';
-import { SERVICES, ServiceItem } from '../../data/services';
-import { SectionHeading } from '../ui/SectionHeading';
-
-const iconMap = {
-  Car: Car,
-  Navigation: Navigation,
-  MapPin: MapPin,
-  Compass: Compass,
-  Users: Users,
-  Bus: Bus,
-};
+import { motion } from 'framer-motion';
+import { Sparkles, MapPin, ArrowRight } from 'lucide-react';
+import { SERVICES_DATA, ServiceItem, COMPANY } from '../../data/cabData';
+import { useToast } from '../ui/Toast';
 
 export const Services: React.FC = () => {
-  const handleEnquireService = (serviceTitle: string) => {
-    const bookingEl = document.getElementById('booking');
-    if (bookingEl) {
-      bookingEl.scrollIntoView({ behavior: 'smooth' });
+  const { showToast } = useToast();
+
+  const getBadgeStyle = (badge: string) => {
+    switch (badge) {
+      case '24×7':
+        return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+      case 'Popular':
+        return 'bg-[#FFD200]/25 text-[#0A1F44] border-[#FFD200] font-black';
+      case 'Special':
+        return 'bg-purple-100 text-purple-800 border-purple-200';
+      case 'Affordable':
+        return 'bg-blue-50 text-[#003B95] border-blue-200';
+      case 'Emergency':
+        return 'bg-red-100 text-red-700 border-red-200';
+      default:
+        return 'bg-amber-100 text-amber-800 border-amber-200';
     }
   };
 
+  const handleBookService = (service: ServiceItem) => {
+    const text = `Hi Shree Cab! 🚕 I want to enquire and book your ${service.title} service. Please share package rates and details.`;
+    showToast(`Opening WhatsApp for ${service.title}...`, 'info');
+    window.open(`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <section id="services" className="py-20 sm:py-24 bg-white relative">
+    <section id="services" className="py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="What We Provide"
-          title="Our Travel Services"
-          subtitle="Dedicated transportation and travel solutions tailored for individual, family, and group journeys across Bhuj-Kutch and Gujarat."
-          centered
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="section-label">
+            <Sparkles className="w-4 h-4 text-[#003B95]" />
+            Our Services
+          </span>
+          <h2 className="section-title mb-4">
+            Rides for Every <span className="text-[#003B95]">Occasion</span>
+          </h2>
+          <p className="section-sub mx-auto">
+            From White Desert sightseeing and temple pilgrimages to airport transfers and hospital emergencies — Shree Cab covers every journey across Kutch.
+          </p>
+        </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {SERVICES.map((service: ServiceItem) => {
-            const IconComponent = iconMap[service.iconName] || Car;
+        {/* 3-Column Services Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {SERVICES_DATA.map((service, index) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-white rounded-3xl overflow-hidden shadow-card card-hover border border-gray-100 flex flex-col justify-between"
+            >
+              <div>
+                {/* Image Banner */}
+                <div className="relative overflow-hidden aspect-[16/10]">
+                  <img
+                    src={service.images[0]}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-            return (
-              <div
-                key={service.id}
-                className="group relative bg-[#FAF8F5] hover:bg-white rounded-2xl p-7 border border-amber-900/10 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-700 group-hover:bg-amber-600 group-hover:text-white flex items-center justify-center transition-colors duration-300 shadow-sm">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-
-                    <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md bg-white border border-slate-200 text-slate-600 group-hover:border-amber-200 group-hover:text-amber-800 transition-colors">
-                      {service.featureBadge}
+                  {/* Floating Badges */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span
+                      className={`text-xs font-bold px-3 py-1 rounded-full border shadow-sm ${getBadgeStyle(
+                        service.badge
+                      )}`}
+                    >
+                      {service.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-amber-600 transition-colors">
+                  <div className="absolute bottom-3 left-4 right-4">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FFD200] drop-shadow">
+                      {service.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-black text-[#0A1F44] tracking-tight mb-2 group-hover:text-[#003B95] transition-colors">
                     {service.title}
                   </h3>
-
-                  <p className="mt-2.5 text-sm sm:text-base text-slate-600 leading-relaxed">
-                    {service.description}
+                  <p className="text-gray-500 text-sm leading-relaxed mb-5">
+                    {service.desc}
                   </p>
-                </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-slate-500">AC Fleet Available</span>
-                  <button
-                    onClick={() => handleEnquireService(service.title)}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 hover:text-amber-800 group-hover:translate-x-1 transition-all"
-                  >
-                    <span>Enquire Service</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </button>
+                  {/* Routes Tags */}
+                  <div className="space-y-2 mb-2 border-t border-gray-100 pt-3">
+                    <div className="text-[11px] font-black uppercase tracking-wider text-gray-400">
+                      Popular Routes:
+                    </div>
+                    {service.routes.map((route, rIdx) => (
+                      <div
+                        key={rIdx}
+                        className="flex items-center gap-2 text-xs font-bold text-[#0A1F44] bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100"
+                      >
+                        <MapPin className="w-3.5 h-3.5 text-[#003B95] shrink-0" />
+                        <span>{route}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Action Button */}
+              <div className="p-6 pt-0">
+                <button
+                  type="button"
+                  onClick={() => handleBookService(service)}
+                  className={`w-full py-3 px-4 rounded-full font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                    service.btnColor === 'yellow'
+                      ? 'btn-primary'
+                      : 'btn-secondary'
+                  }`}
+                >
+                  <span>{service.btnText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

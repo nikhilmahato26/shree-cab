@@ -1,187 +1,256 @@
-import React from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Navigation, ExternalLink } from 'lucide-react';
-import { BUSINESS_INFO } from '../../utils/contact';
-import { getGeneralWhatsAppUrl } from '../../utils/whatsapp';
-import { SectionHeading } from '../ui/SectionHeading';
-import { Button } from '../ui/Button';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Phone, MapPin, Send, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { COMPANY } from '../../data/cabData';
+import { useToast } from '../ui/Toast';
 
 export const Contact: React.FC = () => {
-  const whatsappUrl = getGeneralWhatsAppUrl();
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    service: 'Rann of Kutch Desert Tour',
+    message: '',
+  });
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { showToast } = useToast();
+
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.phone.match(/^[6-9]\d{9}$/)) {
+      newErrors.phone = 'Enter valid 10-digit mobile number';
+    }
+    if (!formData.service) newErrors.service = 'Please select a service';
+    return newErrors;
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    setErrors({});
+    setIsSubmitting(true);
+
+    const messageText = [
+      `🚕 *New Shree Cab Inquiry* 🚕`,
+      ``,
+      `*Name:* ${formData.name}`,
+      `*Phone:* ${formData.phone}`,
+      `*Service Required:* ${formData.service}`,
+      `*Message:* ${formData.message || 'N/A'}`,
+      ``,
+      `Please provide vehicle options and quote.`,
+    ].join('\n');
+
+    setTimeout(() => {
+      window.open(
+        `https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(messageText)}`,
+        '_blank',
+        'noopener,noreferrer'
+      );
+      showToast('Booking request sent to WhatsApp!', 'success');
+      setIsSubmitting(false);
+      setFormData({
+        name: '',
+        phone: '',
+        service: 'Rann of Kutch Desert Tour',
+        message: '',
+      });
+    }, 600);
+  };
 
   return (
-    <section id="contact" className="py-20 sm:py-24 bg-[#FAF8F5] relative">
+    <section id="contact" className="py-20 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="Direct Contact"
-          title="Get In Touch"
-          subtitle="Reach out to Shree Cab Kutch directly via phone, email, or WhatsApp for reservations and travel queries."
-          centered
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="section-label">
+            <Phone className="w-4 h-4 text-[#003B95]" />
+            Contact Us
+          </span>
+          <h2 className="section-title mb-4">
+            Get in Touch <span className="text-[#003B95]">with Us</span>
+          </h2>
+          <p className="section-sub mx-auto">
+            We are available 24 hours a day, 7 days a week for all your travel requirements across Kutch and Gujarat.
+          </p>
+        </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Contact Details Card */}
-          <div className="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-amber-900/10 shadow-md flex flex-col justify-between space-y-6">
-            <div className="space-y-6">
+        {/* 5-Column Grid */}
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10">
+          {/* Left 2 Columns: Contact Information & Google Maps */}
+          <div className="lg:col-span-2 flex flex-col gap-4">
+            {/* Phone Card */}
+            <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-card flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-[#EFF6FF] flex items-center justify-center shrink-0">
+                <Phone className="w-5 h-5 text-[#003B95]" />
+              </div>
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                  {BUSINESS_INFO.tagline}
-                </span>
-                <h3 className="text-2xl font-bold text-slate-900 mt-1">
-                  {BUSINESS_INFO.name}
-                </h3>
-                <p className="text-sm text-slate-600 mt-1">
-                  Ready to serve your travel needs across Bhuj, Kutch, and Gujarat.
-                </p>
-              </div>
-
-              <div className="space-y-4 pt-2">
-                {/* Primary Phone */}
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-amber-50/50 border border-amber-100 hover:border-amber-300 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                      Primary Phone
-                    </p>
-                    <a
-                      href={`tel:${BUSINESS_INFO.primaryPhone}`}
-                      className="text-base sm:text-lg font-bold text-slate-900 hover:text-amber-600 transition-colors block mt-0.5"
-                    >
-                      {BUSINESS_INFO.primaryPhoneDisplay}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Secondary Phone */}
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-slate-300 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                      Alternate Phone
-                    </p>
-                    <a
-                      href={`tel:${BUSINESS_INFO.secondaryPhone}`}
-                      className="text-base sm:text-lg font-bold text-slate-900 hover:text-amber-600 transition-colors block mt-0.5"
-                    >
-                      {BUSINESS_INFO.secondaryPhoneDisplay}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-slate-300 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1 overflow-hidden">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                      Email Address
-                    </p>
-                    <a
-                      href={`mailto:${BUSINESS_INFO.email}`}
-                      className="text-sm sm:text-base font-bold text-slate-900 hover:text-amber-600 transition-colors block mt-0.5 truncate"
-                    >
-                      {BUSINESS_INFO.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Address */}
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-slate-300 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
-                      Office Address
-                    </p>
-                    <p className="text-sm font-semibold text-slate-900 mt-0.5 leading-snug">
-                      {BUSINESS_INFO.address}
-                    </p>
-                  </div>
-                </div>
+                <h4 className="font-extrabold text-[#0A1F44] text-sm mb-0.5">Call Us Directly (24×7)</h4>
+                <a
+                  href={`tel:+91${COMPANY.phone}`}
+                  className="text-[#003B95] font-black text-base hover:underline block"
+                >
+                  +91 {COMPANY.phone}
+                </a>
+                <a
+                  href={`tel:+91${COMPANY.phoneAlt}`}
+                  className="text-gray-500 font-bold text-xs hover:underline block"
+                >
+                  Alt: +91 {COMPANY.phoneAlt}
+                </a>
               </div>
             </div>
 
-            {/* Quick Action buttons */}
-            <div className="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
-              <Button
-                variant="whatsapp"
-                size="md"
-                href={whatsappUrl}
-                target="_blank"
-                icon={<MessageCircle className="w-4 h-4" />}
-                className="w-full text-xs sm:text-sm font-bold"
-              >
-                WhatsApp Us
-              </Button>
-
-              <Button
-                variant="outline"
-                size="md"
-                href={`mailto:${BUSINESS_INFO.email}`}
-                icon={<Mail className="w-4 h-4" />}
-                className="w-full text-xs sm:text-sm font-bold"
-              >
-                Email Us
-              </Button>
-            </div>
-          </div>
-
-          {/* Interactive Google Map embed card */}
-          <div className="lg:col-span-7 bg-white rounded-3xl overflow-hidden border border-amber-900/10 shadow-md flex flex-col justify-between">
-            <div className="p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            {/* WhatsApp Card */}
+            <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-card flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
+                <MessageCircle className="w-5 h-5 text-emerald-600" />
+              </div>
               <div>
-                <h4 className="text-lg font-bold text-slate-900">
-                  Location in Bhuj-Kutch
-                </h4>
-                <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                  Mirjapar Road, Bhuj-Kutch, Gujarat – 370001
-                </p>
+                <h4 className="font-extrabold text-[#0A1F44] text-sm mb-0.5">Quick WhatsApp Booking</h4>
+                <a
+                  href={`https://wa.me/${COMPANY.whatsapp}?text=Hi Shree Cab, I want to book a cab.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-700 font-black text-sm hover:underline block"
+                >
+                  Chat on WhatsApp &rarr;
+                </a>
+                <p className="text-gray-400 text-xs">Replies within minutes</p>
               </div>
-
-              <Button
-                variant="primary"
-                size="sm"
-                href={BUSINESS_INFO.googleMapsUrl}
-                target="_blank"
-                icon={<Navigation className="w-4 h-4" />}
-                className="shrink-0 font-bold"
-              >
-                Get Directions
-              </Button>
             </div>
 
-            {/* Embedded Google Map iframe */}
-            <div className="relative w-full h-[380px] sm:h-[460px] bg-slate-100">
+            {/* Office Address Card */}
+            <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-card flex items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center shrink-0">
+                <MapPin className="w-5 h-5 text-amber-600" />
+              </div>
+              <div>
+                <h4 className="font-extrabold text-[#0A1F44] text-sm mb-0.5">Head Office</h4>
+                <p className="text-gray-600 text-xs sm:text-sm font-semibold leading-relaxed">
+                  {COMPANY.address.line1}, {COMPANY.address.line2}, {COMPANY.address.line3}
+                </p>
+                <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 mt-1">
+                  <Clock className="w-3 h-3" /> Open 24 Hours / 365 Days
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps Embed */}
+            <div className="rounded-3xl overflow-hidden shadow-card border border-gray-100 h-52 sm:h-60 mt-1">
               <iframe
-                title="Shree Cab Kutch Office Location"
-                src="https://maps.google.com/maps?q=Mirjapar+Road,+Bhuj,+Gujarat+370001&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
+                title="Shree Cab Office Location in Bhuj"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117466.86211244458!2d69.58988636250002!3d23.253018899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39511e604f5b5b0d%3A0x7d6a59b2a7ef813!2sBhuj%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                className="w-full h-full border-0"
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
               />
             </div>
+          </div>
 
-            <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span>Conveniently accessible in Bhuj for city and outstation departures.</span>
-              <a
-                href={BUSINESS_INFO.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 font-semibold text-amber-700 hover:underline"
-              >
-                <span>View Full Map</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+          {/* Right 3 Columns: Interactive WhatsApp Booking Form */}
+          <div className="lg:col-span-3 bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-card flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-black uppercase text-[#003B95] tracking-wider mb-1">
+                <ShieldCheck className="w-4 h-4" /> Instant WhatsApp Form
+              </div>
+              <h3 className="text-2xl font-black text-[#0A1F44] tracking-tight mb-2">
+                Send Booking Inquiry
+              </h3>
+              <p className="text-gray-500 text-sm mb-6">
+                Fill in the details below and we will automatically prepare your WhatsApp message to book with Shree Cab.
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      Your Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      placeholder="e.g. Ramesh Patel"
+                      className="w-full h-12 px-4 rounded-xl border border-gray-200 text-sm font-semibold text-[#0A1F44] focus:outline-none focus:ring-2 focus:ring-[#003B95]"
+                    />
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 mb-1">
+                      Mobile Number (10 Digits) *
+                    </label>
+                    <input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="e.g. 9727862635"
+                      className="w-full h-12 px-4 rounded-xl border border-gray-200 text-sm font-semibold text-[#0A1F44] focus:outline-none focus:ring-2 focus:ring-[#003B95]"
+                    />
+                    {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Select Service / Package *
+                  </label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                    className="w-full h-12 px-4 rounded-xl border border-gray-200 text-sm font-extrabold text-[#0A1F44] focus:outline-none focus:ring-2 focus:ring-[#003B95] cursor-pointer"
+                  >
+                    <option value="Rann of Kutch Desert Tour">Rann of Kutch & White Desert Tour</option>
+                    <option value="Outstation Highway Cabs">Outstation Highway Cabs (Ahmedabad / Rajkot)</option>
+                    <option value="Mandvi Beach & Palaces">Mandvi Beach & Vijay Vilas Palace</option>
+                    <option value="Dholavira Heritage Tour">Dholavira UNESCO Harappan Tour</option>
+                    <option value="Temple Pilgrimage Tour">Temple Pilgrimage (Mata no Madh / Koteshwar)</option>
+                    <option value="Airport / Railway Transfer">Airport / Railway Station Transfer</option>
+                    <option value="Wedding / Event Fleet">Wedding & Event Transportation</option>
+                    <option value="24×7 Hospital & Emergency Cab">24×7 Hospital Emergency Cab</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Pickup Location & Travel Dates (Optional)
+                  </label>
+                  <textarea
+                    rows={3}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Enter pickup point, travel dates, number of passengers, or any specific requirements..."
+                    className="w-full p-4 rounded-xl border border-gray-200 text-sm font-semibold text-[#0A1F44] focus:outline-none focus:ring-2 focus:ring-[#003B95]"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full py-4 text-xs sm:text-sm uppercase font-black tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Send className="w-4 h-4" />
+                  {isSubmitting ? 'Opening WhatsApp...' : 'Send Booking via WhatsApp'}
+                </button>
+              </form>
             </div>
+
+            <p className="text-center text-xs text-gray-400 mt-4">
+              🔒 Your contact information is kept strictly confidential and used solely for booking your cab.
+            </p>
           </div>
         </div>
       </div>

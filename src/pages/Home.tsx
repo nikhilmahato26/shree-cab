@@ -1,55 +1,59 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Hero } from '../components/sections/Hero';
-import { QuickContactBar } from '../components/sections/QuickContactBar';
+import { BillingStrip } from '../components/sections/BillingStrip';
+import { HowItWorks } from '../components/sections/HowItWorks';
 import { About } from '../components/sections/About';
-import { Services } from '../components/sections/Services';
 import { Fleet } from '../components/sections/Fleet';
+import { Services } from '../components/sections/Services';
+import { PopularRoutes } from '../components/sections/PopularRoutes';
 import { WhyChooseUs } from '../components/sections/WhyChooseUs';
-import { Travel } from '../components/sections/Travel';
-import { BookingForm } from '../components/sections/BookingForm';
+import { Testimonials } from '../components/sections/Testimonials';
+import { Faq } from '../components/sections/Faq';
+import { PaymentSection } from '../components/sections/PaymentSection';
 import { Contact } from '../components/sections/Contact';
+import { CtaStrip } from '../components/sections/CtaStrip';
 
 export const Home: React.FC = () => {
-  const [selectedVehicle, setSelectedVehicle] = useState<string>('Maruti Suzuki Dzire');
-
-  const scrollToBooking = (vehicleName?: string) => {
-    if (vehicleName) {
-      setSelectedVehicle(vehicleName);
-    }
-    const bookingEl = document.getElementById('booking');
-    if (bookingEl) {
-      bookingEl.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <main className="w-full overflow-hidden">
-      {/* 1. Hero Section */}
-      <Hero onBookClick={() => scrollToBooking()} />
+    <div className="w-full">
+      {/* 1. Hero Section with dynamic carousel & booking form */}
+      <Hero />
 
-      {/* 2. Quick Contact / Feature Strip */}
-      <QuickContactBar />
+      {/* 2. Billing / Minimum km strip */}
+      <BillingStrip />
 
-      {/* 3. About Section */}
+      {/* 3. Simple Process (How It Works) */}
+      <HowItWorks />
+
+      {/* 4. About Shree Cab */}
       <About />
 
-      {/* 4. Services Section */}
+      {/* 5. Fleet Showcase */}
+      <Fleet />
+
+      {/* 6. Rides for Every Occasion (Services) */}
       <Services />
 
-      {/* 5. Fleet Section */}
-      <Fleet onSelectVehicle={(v) => scrollToBooking(v)} />
+      {/* 7. Popular Routes & Transparent Fares */}
+      <PopularRoutes />
 
-      {/* 6. Why Choose Us Section */}
+      {/* 8. Why Choose Shree Cab (Dark Blue Feature Section) */}
       <WhyChooseUs />
 
-      {/* 7. Kutch Travel Section */}
-      <Travel onPlanTrip={() => scrollToBooking()} />
+      {/* 9. Customer Testimonials Carousel */}
+      <Testimonials />
 
-      {/* 8. Booking / Plan Your Journey Form */}
-      <BookingForm selectedVehicle={selectedVehicle} />
+      {/* 10. Frequently Asked Questions */}
+      <Faq />
 
-      {/* 9. Contact & Google Maps Section */}
+      {/* 11. Payment Options & QR Code */}
+      <PaymentSection />
+
+      {/* 12. Contact Us & WhatsApp Booking Request */}
       <Contact />
-    </main>
+
+      {/* 13. Dynamic CTA Banner */}
+      <CtaStrip />
+    </div>
   );
 };

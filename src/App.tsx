@@ -1,45 +1,47 @@
 import React from 'react';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { ToastProvider } from './components/ui/Toast';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
-import { MobileBottomBar } from './components/layout/MobileBottomBar';
-import { WhatsAppButton } from './components/ui/WhatsAppButton';
+import { FloatingActions } from './components/ui/FloatingActions';
 import { Home } from './pages/Home';
 
 export const App: React.FC = () => {
-  const handleBookClick = () => {
-    const el = document.getElementById('booking');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <HelmetProvider>
-      <div className="min-h-screen flex flex-col bg-[#FAF8F5] text-slate-800 selection:bg-amber-500 selection:text-white relative">
-        <Helmet>
-          <title>Shree Cab Kutch | Cab Rental & Travel Agency in Bhuj, Kutch</title>
-          <meta
-            name="description"
-            content="Shree Cab Kutch provides AC cab rental and travel agency services in Bhuj-Kutch, Gujarat. Choose from Dzire, Ertiga, Innova Crysta, Tempo Traveller and Force Urbania for your travel needs."
-          />
-        </Helmet>
+      <ToastProvider>
+        <div className="min-h-screen flex flex-col bg-white text-slate-800 selection:bg-[#FFD200] selection:text-[#0A1F44] relative">
+          <Helmet>
+            <title>Shree Cab – Book Your Ride in Kutch! | 24×7 Cab Service Bhuj</title>
+            <meta
+              name="description"
+              content="Safe, reliable & affordable cab service in Bhuj and Kutch. White Desert, Mandvi, Dholavira, temple tours & outstation travel. Available 24×7. Call/WhatsApp: +91 97278 62635"
+            />
+          </Helmet>
 
-        {/* Top Sticky Navbar */}
-        <Navbar onBookClick={handleBookClick} />
+          {/* Accessible Skip Link */}
+          <a
+            href="#home"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-[#FFD200] focus:text-[#0A1F44] focus:font-extrabold focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg"
+          >
+            Skip to main content
+          </a>
 
-        {/* Main Content */}
-        <div className="flex-1 w-full">
-          <Home />
+          {/* Sticky Top Navbar */}
+          <Navbar />
+
+          {/* Main Content */}
+          <main id="home" className="flex-1 w-full">
+            <Home />
+          </main>
+
+          {/* Dark Footer */}
+          <Footer />
+
+          {/* Floating Actions & Mobile Bottom Bar */}
+          <FloatingActions />
         </div>
-
-        {/* Global Footer */}
-        <Footer />
-
-        {/* Floating WhatsApp Action Button */}
-        <WhatsAppButton />
-
-        {/* Mobile Sticky Bottom Action Bar */}
-        <MobileBottomBar onBookClick={handleBookClick} />
-      </div>
+      </ToastProvider>
     </HelmetProvider>
   );
 };
