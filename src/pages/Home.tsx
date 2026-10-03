@@ -7,6 +7,7 @@ import { About } from '../components/sections/About';
 import { Fleet } from '../components/sections/Fleet';
 import { Gallery } from '../components/sections/Gallery';
 import { Services } from '../components/sections/Services';
+import { OneWayServices } from '../components/sections/OneWayServices';
 import { PopularRoutes } from '../components/sections/PopularRoutes';
 import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { Testimonials } from '../components/sections/Testimonials';
@@ -42,7 +43,10 @@ export const Home: React.FC = () => {
       {/* 7. Rides for Every Occasion (Services) */}
       <Services />
 
-      {/* 7. Popular Routes & Transparent Fares */}
+      {/* 8. ONE WAY CABS DAILY SERVICES */}
+      <OneWayServices />
+
+      {/* 9. Popular Routes & Transparent Fares */}
       <PopularRoutes />
 
       {/* 8. Why Choose Shree Cab (Dark Blue Feature Section) */}

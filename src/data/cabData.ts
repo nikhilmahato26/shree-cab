@@ -62,8 +62,29 @@ export const COMPANY = {
     state: 'Gujarat',
   },
   socials: {
-    facebook: 'https://facebook.com',
-    instagram: 'https://instagram.com',
+    facebook: 'https://www.facebook.com/search/top?q=shree%20tours%20travels%20bhuj',
+    facebookName: 'shree tours travels bhuj',
+    instagram: 'https://www.instagram.com/shree_tours_travels_bhuj/',
+    instagramProfiles: [
+      {
+        name: 'Shree Tours Travels Bhuj',
+        handle: '@shree_tours_travels_bhuj',
+        url: 'https://www.instagram.com/shree_tours_travels_bhuj/',
+        role: 'Official Business',
+      },
+      {
+        name: 'Laxman Chanepar',
+        handle: '@laxman_chanepar',
+        url: 'https://www.instagram.com/laxman_chanepar/',
+        role: 'Owner',
+      },
+      {
+        name: 'Prem Chanepar',
+        handle: '@prem_chanepar',
+        url: 'https://www.instagram.com/prem_chanepar/',
+        role: 'Co-Owner',
+      },
+    ],
     youtube: 'https://youtube.com',
   },
   payment: {
@@ -100,7 +121,7 @@ export interface HeroVehicleOption {
 export const HERO_VEHICLES: HeroVehicleOption[] = [
   { name: 'Hyundai Aura', type: 'Sedan', seats: 5, image: auraImg },
   { name: 'Maruti Suzuki Dzire', type: 'Compact Sedan', seats: 5, image: dzireImg },
-  { name: 'Maruti Suzuki Ertiga', type: 'MUV', seats: 7, image: ertigaImg },
+  { name: 'Maruti Suzuki Ertiga', type: 'SUV', seats: 7, image: ertigaImg },
   { name: 'Luxurious Urbania Vans', type: 'Luxury Van', seats: 12, image: urbaniaPng },
   { name: 'Toyota Innova Crysta', type: 'Premium SUV', seats: 7, image: innovaImg },
   { name: 'Tempo Traveller', type: 'Traveller', seats: 12, image: travellerImg },
@@ -228,7 +249,7 @@ export const FLEET_DATA: FleetVehicle[] = [
     image: fleetAuraImg,
     seats: 5,
     ac: true,
-    pricePerKm: 11,
+    pricePerKm: 12,
     icon: '🚗',
     suitableFor: ['Local Travel', 'Airport Transfers', 'Outstation Trips'],
     specs: ['5 Seater (4+1)', 'Air Conditioned', 'Spacious Boot Space', 'Smooth Highway Ride'],
@@ -248,26 +269,14 @@ export const FLEET_DATA: FleetVehicle[] = [
   },
   {
     name: 'Maruti Suzuki Ertiga',
-    type: 'Family MUV',
+    type: 'Family SUV',
     image: fleetErtigaImg,
     seats: 7,
     ac: true,
-    pricePerKm: 13,
-    icon: '🚐',
+    pricePerKm: 14,
+    icon: '🚙',
     suitableFor: ['Family Tours', 'Small Groups', 'Airport Pickups'],
     specs: ['7 Seater (6+1)', 'Dual AC Vents', 'Foldable Seats for Luggage'],
-    featured: false,
-  },
-  {
-    name: 'Luxurious Urbania Vans',
-    type: 'Luxury Passenger Van',
-    image: fleetUrbaniaImg,
-    seats: 12,
-    ac: true,
-    pricePerKm: 26,
-    icon: '🚐',
-    suitableFor: ['VIP Corporate Travel', 'Family Tours', 'Rann Utsav Luxury Trip'],
-    specs: ['10 to 14 Seater', 'Plush Captain Recliners', 'High Roof Luxury Cabin', 'Individual AC & USB'],
     featured: false,
   },
   {
@@ -276,22 +285,34 @@ export const FLEET_DATA: FleetVehicle[] = [
     image: fleetInnovaImg,
     seats: 7,
     ac: true,
-    pricePerKm: 18,
+    pricePerKm: 20,
     icon: '🚙',
     suitableFor: ['Rann of Kutch Tours', 'Outstation Travel', 'VIP & NRI Travel'],
     specs: ['7 Seater (6+1)', 'Captain Seats & Recliner', 'Large Trunk Capacity', 'Climate Control'],
     featured: true,
   },
   {
-    name: 'Tempo Traveller & Urbania',
+    name: 'Tempo Traveller',
     type: 'Group Passenger Vehicle',
     image: fleetTravellerImg,
     seats: 12,
     ac: true,
-    pricePerKm: 24,
+    pricePerKm: 30,
     icon: '🚌',
     suitableFor: ['Group Sightseeing', 'Temple Yatras', 'Weddings & Events'],
     specs: ['12 to 20 Seater', 'Pushback Recliner Seats', 'High Roof & Big Luggage Carrier'],
+    featured: false,
+  },
+  {
+    name: 'Luxurious Urbania Vans',
+    type: 'Luxury Passenger Van',
+    image: fleetUrbaniaImg,
+    seats: 12,
+    ac: true,
+    pricePerKm: 35,
+    icon: '🚐',
+    suitableFor: ['VIP Corporate Travel', 'Family Tours', 'Rann Utsav Luxury Trip'],
+    specs: ['10 to 14 Seater', 'Plush Captain Recliners', 'High Roof Luxury Cabin', 'Individual AC & USB'],
     featured: false,
   },
 ];
@@ -350,6 +371,80 @@ export const POPULAR_ROUTES = [
     sedanFare: '₹4,800',
     suvFare: '₹6,800',
     popular: false,
+  },
+];
+
+export interface OneWayDailyService {
+  id: string;
+  title: string;
+  fromCity: string;
+  toCity: string;
+  distance: string;
+  duration: string;
+  badge: string;
+  description: string;
+  highlights: string[];
+  sedanFare: string;
+  suvFare: string;
+  schedule: string;
+}
+
+export const ONE_WAY_SERVICES: OneWayDailyService[] = [
+  {
+    id: 'amdavad-bhuj',
+    title: 'AMDAVAD ➜ BHUJ-KUTCH',
+    fromCity: 'Amdavad',
+    toCity: 'Bhuj-Kutch',
+    distance: '335 km',
+    duration: '6 hrs',
+    badge: 'Daily Service',
+    description: 'Direct highway one-way cab from anywhere in Ahmedabad (Airport, Railway Station, SG Highway) straight to your doorstep in Bhuj & Kutch.',
+    highlights: ['Doorstep pickup across Ahmedabad', 'Flight & Train timed pickups', 'Zero return fare charges'],
+    sedanFare: '₹6,500',
+    suvFare: '₹9,000',
+    schedule: '24×7 Daily Available',
+  },
+  {
+    id: 'bhuj-amdavad',
+    title: 'BHUJ-KUTCH ➜ AMDAVAD',
+    fromCity: 'Bhuj-Kutch',
+    toCity: 'Amdavad',
+    distance: '335 km',
+    duration: '6 hrs',
+    badge: 'Daily Service',
+    description: 'Daily reliable one-way cab from Bhuj, Gandhidham, Anjar or Mandvi to Ahmedabad Airport, hospitals, SG Highway & railway stations.',
+    highlights: ['Scheduled for flights & business travel', 'Comfortable AC Sedan & SUV options', 'Safe highway night travel'],
+    sedanFare: '₹6,500',
+    suvFare: '₹9,000',
+    schedule: '24×7 Daily Available',
+  },
+  {
+    id: 'rajkot-bhuj',
+    title: 'RAJKOT ➜ BHUJ-KUTCH',
+    fromCity: 'Rajkot',
+    toCity: 'Bhuj-Kutch',
+    distance: '230 km',
+    duration: '4 hrs',
+    badge: 'Daily Service',
+    description: 'Fast, smooth highway one-way transfer from Rajkot Hirasar Airport, AIIMS, bus stand or railway station directly into Bhuj & Kutch.',
+    highlights: ['Hirasar Airport & AIIMS pickups', 'Express National Highway route', 'Experienced highway drivers'],
+    sedanFare: '₹4,800',
+    suvFare: '₹6,800',
+    schedule: '24×7 Daily Available',
+  },
+  {
+    id: 'bhuj-rajkot',
+    title: 'BHUJ-KUTCH ➜ RAJKOT',
+    fromCity: 'Bhuj-Kutch',
+    toCity: 'Rajkot',
+    distance: '230 km',
+    duration: '4 hrs',
+    badge: 'Daily Service',
+    description: 'Daily one-way cab from anywhere in Bhuj-Kutch to Rajkot city, medical centers, commercial hubs or transit points.',
+    highlights: ['Punctual doorstep pickup in Kutch', 'Direct point-to-point drop in Rajkot', 'Affordable fixed one-way tariff'],
+    sedanFare: '₹4,800',
+    suvFare: '₹6,800',
+    schedule: '24×7 Daily Available',
   },
 ];
 
@@ -609,7 +704,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'gallery-04',
     src: gallery04,
-    title: 'Maruti Suzuki Ertiga Family MUV',
+    title: 'Maruti Suzuki Ertiga Family SUV',
     category: 'SUVs',
     caption: 'Comfortable 7-seater family car for Kutch sightseeing & airport transfers.',
     vehicleName: 'Maruti Suzuki Ertiga',

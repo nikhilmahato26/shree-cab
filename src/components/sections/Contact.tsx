@@ -147,6 +147,56 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Social Media Profiles Card */}
+            <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-card">
+              <h4 className="font-extrabold text-[#0A1F44] text-sm mb-3 flex items-center gap-2">
+                <span className="text-base">📱</span> Social Media Channels
+              </h4>
+
+              {/* Facebook */}
+              <a
+                href={COMPANY.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-2.5 rounded-2xl bg-blue-50/70 hover:bg-blue-100/70 transition-colors text-xs font-bold text-[#1877F2] mb-2 group"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-[#1877F2] text-white flex items-center justify-center font-bold text-xs">
+                    f
+                  </span>
+                  <span className="group-hover:underline">{COMPANY.socials.facebookName}</span>
+                </div>
+                <span className="text-[10px] font-bold text-[#003B95] uppercase bg-white px-2 py-0.5 rounded-full shadow-xs">
+                  Facebook Page
+                </span>
+              </a>
+
+              {/* Instagram Accounts */}
+              <div className="space-y-1.5">
+                {COMPANY.socials.instagramProfiles.map((acc) => (
+                  <a
+                    key={acc.handle}
+                    href={acc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-rose-50/60 to-orange-50/60 hover:from-rose-100/70 hover:to-orange-100/70 transition-colors text-xs group"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 rounded-full bg-gradient-to-tr from-[#FCAF45] via-[#E1306C] to-[#833AB4] text-white flex items-center justify-center text-[10px]">
+                        📸
+                      </span>
+                      <span className="font-extrabold text-[#0A1F44] group-hover:text-[#E1306C] transition-colors">
+                        {acc.handle}
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-semibold text-gray-500">
+                      {acc.role}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
             {/* Google Maps Embed */}
             <div className="rounded-3xl overflow-hidden shadow-card border border-gray-100 h-52 sm:h-60 mt-1">
               <iframe

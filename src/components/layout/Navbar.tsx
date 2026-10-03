@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: 'Home', href: '#home' },
   { label: 'Packages', href: '#packages' },
   { label: 'Fleet', href: '#fleet' },
+  { label: 'One-Way', href: '#oneway' },
   { label: 'Gallery', href: '#gallery' },
   { label: 'Services', href: '#services' },
   { label: 'Routes', href: '#routes' },
@@ -15,7 +16,7 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-const SECTION_IDS = ['home', 'packages', 'fleet', 'gallery', 'services', 'routes', 'about', 'payment', 'contact'];
+const SECTION_IDS = ['home', 'packages', 'fleet', 'oneway', 'gallery', 'services', 'routes', 'about', 'payment', 'contact'];
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);

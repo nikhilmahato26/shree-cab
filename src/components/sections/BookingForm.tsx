@@ -47,15 +47,17 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedVehicle }) => 
   const [submittedData, setSubmittedData] = useState<BookingEnquiryPayload | null>(null);
 
   const vehicleOptions = [
+    'Hyundai Aura',
     'Maruti Suzuki Dzire',
     'Maruti Suzuki Ertiga',
     'Toyota Innova Crysta',
     'Tempo Traveller',
-    'Force Urbania Van',
+    'Luxurious Urbania Vans',
     'Any Vehicle',
   ];
 
   const journeyOptions = [
+    'One-Way Daily Cab (Amdavad / Rajkot / Bhuj)',
     'Local Travel',
     'Outstation Travel',
     'Airport Transfer',

@@ -189,6 +189,10 @@ export const Hero: React.FC = () => {
                   className="h-13 sm:h-14 w-full rounded-xl border-2 border-transparent bg-white px-4 pr-10 text-center sm:text-left text-sm sm:text-base font-black text-[#0A1F44] outline-none shadow-sm focus:border-[#0A1F44] focus:ring-4 focus:ring-[#003B95]/20 cursor-pointer appearance-none transition-all hover:bg-white/95"
                 >
                   <option value="Book Your Ride Here ⬇️">Book Your Ride Here ⬇️</option>
+                  <option value="One-Way Cab: AMDAVAD ➜ BHUJ-KUTCH">⚡ One-Way: AMDAVAD ➜ BHUJ-KUTCH</option>
+                  <option value="One-Way Cab: BHUJ-KUTCH ➜ AMDAVAD">⚡ One-Way: BHUJ-KUTCH ➜ AMDAVAD</option>
+                  <option value="One-Way Cab: RAJKOT ➜ BHUJ-KUTCH">⚡ One-Way: RAJKOT ➜ BHUJ-KUTCH</option>
+                  <option value="One-Way Cab: BHUJ-KUTCH ➜ RAJKOT">⚡ One-Way: BHUJ-KUTCH ➜ RAJKOT</option>
                   <option value="Rann of Kutch & White Desert Tour">Rann of Kutch & White Desert Tour</option>
                   <option value="Rann Utsav Package (1N/2D - ₹8,000/PP)">Rann Utsav Package (1N/2D - ₹8,000/PP)</option>
                   <option value="Grand Rann Utsav Tour (2N/3D - ₹12,450/PP)">Grand Rann Utsav Tour (2N/3D - ₹12,450/PP)</option>

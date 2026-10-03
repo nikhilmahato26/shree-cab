@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
               Kutch's premier cab service and travel agency based in Bhuj. Providing safe, reliable, and affordable AC car rentals for Rann of Kutch tours, outstation travel, and local sightseeing.
             </p>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mb-5">
               <a
                 href={`https://wa.me/${COMPANY.whatsapp}`}
                 target="_blank"
@@ -71,6 +71,46 @@ export const Footer: React.FC = () => {
               >
                 <span className="text-white font-bold text-xs">▶</span>
               </a>
+            </div>
+
+            {/* Social Media Accounts List */}
+            <div className="pt-3 border-t border-white/10 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="w-5 h-5 rounded-full bg-[#1877F2] text-white flex items-center justify-center text-[10px] font-bold shrink-0">
+                  f
+                </span>
+                <a
+                  href={COMPANY.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-blue-100 hover:text-white font-semibold transition-colors truncate hover:underline"
+                >
+                  {COMPANY.socials.facebookName}
+                </a>
+              </div>
+
+              <div className="space-y-1 pt-1">
+                <span className="text-[10px] uppercase font-black tracking-wider text-[#FFD200] block">
+                  Instagram Profiles
+                </span>
+                {COMPANY.socials.instagramProfiles.map((acc) => (
+                  <a
+                    key={acc.handle}
+                    href={acc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-xs text-blue-100 hover:text-[#FFD200] transition-colors group"
+                  >
+                    <span className="w-4 h-4 rounded-full bg-gradient-to-tr from-[#FCAF45] via-[#E1306C] to-[#833AB4] text-white text-[9px] flex items-center justify-center shrink-0">
+                      📸
+                    </span>
+                    <span className="font-semibold text-white/95 group-hover:underline">
+                      {acc.handle}
+                    </span>
+                    <span className="text-[10px] text-blue-200/60">({acc.role})</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
