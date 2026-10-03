@@ -64,13 +64,17 @@ export const Hero: React.FC = () => {
     const pickup = formData.get('pickup');
     const drop = formData.get('drop');
     const date = formData.get('date');
-    const tripPackage = formData.get('package');
+    const rawPackage = (formData.get('package') as string) || '';
+    const tripPackage =
+      rawPackage === 'Book Your Ride Here ⬇️' || !rawPackage
+        ? 'Standard Cab Service'
+        : rawPackage;
 
     const whatsappMessage = [
       `🚕 *Shree Cab Booking Request* 🚕`,
       ``,
       `*Vehicle:* ${vehicleName}`,
-      `*Package:* ${tripPackage}`,
+      `*Trip / Package:* ${tripPackage}`,
       `*Customer Name:* ${name}`,
       `*Phone Number:* ${mobile}`,
       `*Travel Date:* ${date}`,
@@ -148,49 +152,58 @@ export const Hero: React.FC = () => {
                   type="button"
                   onClick={() => setSelectedVehicleIdx(idx)}
                   aria-pressed={isSelected}
-                  className={`group rounded-xl border-2 px-1.5 py-2 text-center transition-all focus:outline-none focus:ring-4 focus:ring-[#003B95]/20 cursor-pointer ${
+                  className={`group rounded-xl border-2 px-1 py-2 text-center transition-all focus:outline-none focus:ring-4 focus:ring-[#003B95]/20 cursor-pointer flex flex-col items-center justify-between min-h-[112px] sm:min-h-[122px] ${
                     isSelected
                       ? 'border-[#0A1F44] bg-white shadow-[0_8px_20px_rgba(10,31,68,0.22)] scale-102'
                       : 'border-transparent bg-white/50 hover:bg-white/80'
                   }`}
                 >
-                  <span className="block h-13 sm:h-15">
+                  <span className="block h-12 sm:h-14 w-full flex items-center justify-center">
                     <img
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </span>
-                  <span className="mt-1 block text-[10px] sm:text-[11px] font-black leading-tight text-[#0A1F44]">
-                    {vehicle.name}
-                  </span>
-                  <span className="mt-0.5 block text-[8px] sm:text-[9px] font-bold uppercase leading-tight text-[#0A1F44]/70">
-                    {vehicle.type}
-                  </span>
+                  <div className="w-full mt-1">
+                    <span className="block text-[10px] sm:text-[11px] font-black leading-tight text-[#0A1F44]">
+                      {vehicle.name}
+                    </span>
+                    <span className="mt-0.5 block text-[8px] sm:text-[9px] font-bold uppercase leading-tight text-[#0A1F44]/70">
+                      {vehicle.type}
+                    </span>
+                  </div>
                 </button>
               );
             })}
           </div>
 
-          {/* Form Inputs Grid */}
+          {/* Form Inputs Grid - Direct Booking Prompt */}
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             <label className="sm:col-span-2">
-              <span className="sr-only">Trip package (required)</span>
-              <select
-                name="package"
-                defaultValue="Rann of Kutch Desert Tour"
-                required
-                className="h-13 sm:h-14 w-full rounded-xl border-0 bg-white px-4 text-sm font-extrabold text-[#0A1F44] outline-none focus:ring-4 focus:ring-[#003B95]/20 shadow-sm cursor-pointer"
-              >
-                <option value="Rann of Kutch Desert Tour">Rann of Kutch & White Desert Tour</option>
-                <option value="Outstation Trip">Outstation Highway Trip</option>
-                <option value="Bhuj Local Package">Bhuj Local City Package</option>
-                <option value="Mandvi Beach & Palace">Mandvi Beach & Palace Tour</option>
-                <option value="Dholavira Heritage Tour">Dholavira Road to Heaven Tour</option>
-                <option value="Airport / Railway Transfer">Airport / Railway Station Transfer</option>
-                <option value="Mata no Madh Temple Tour">Mata no Madh & Koteshwar Tour</option>
-                <option value="Emergency Hospital Ride">24×7 Emergency Hospital Ride</option>
-              </select>
+              <span className="sr-only">Book Your Ride Here - Select Option</span>
+              <div className="relative">
+                <select
+                  name="package"
+                  defaultValue="Book Your Ride Here ⬇️"
+                  className="h-13 sm:h-14 w-full rounded-xl border-2 border-transparent bg-white px-4 pr-10 text-center sm:text-left text-sm sm:text-base font-black text-[#0A1F44] outline-none shadow-sm focus:border-[#0A1F44] focus:ring-4 focus:ring-[#003B95]/20 cursor-pointer appearance-none transition-all hover:bg-white/95"
+                >
+                  <option value="Book Your Ride Here ⬇️">Book Your Ride Here ⬇️</option>
+                  <option value="Rann of Kutch & White Desert Tour">Rann of Kutch & White Desert Tour</option>
+                  <option value="Rann Utsav Package (1N/2D - ₹8,000/PP)">Rann Utsav Package (1N/2D - ₹8,000/PP)</option>
+                  <option value="Grand Rann Utsav Tour (2N/3D - ₹12,450/PP)">Grand Rann Utsav Tour (2N/3D - ₹12,450/PP)</option>
+                  <option value="Bhuj Local City Package">Bhuj Local City Package</option>
+                  <option value="Outstation Highway Trip">Outstation Highway Trip</option>
+                  <option value="Mandvi Beach & Palace Tour">Mandvi Beach & Palace Tour</option>
+                  <option value="Dholavira Road to Heaven Tour">Dholavira Road to Heaven Tour</option>
+                  <option value="Airport / Railway Station Transfer">Airport / Railway Station Transfer</option>
+                  <option value="Mata no Madh & Koteshwar Tour">Mata no Madh & Koteshwar Tour</option>
+                  <option value="Emergency Hospital Ride (24×7)">Emergency Hospital Ride (24×7)</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-[#0A1F44]">
+                  <span className="text-base sm:text-lg animate-bounce">⬇️</span>
+                </div>
+              </div>
             </label>
 
             <HeroInput name="name" placeholder="Your Name *" />

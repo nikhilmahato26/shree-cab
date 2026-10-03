@@ -1,9 +1,11 @@
 import React from 'react';
 import { Hero } from '../components/sections/Hero';
 import { BillingStrip } from '../components/sections/BillingStrip';
+import { TourPackages } from '../components/sections/TourPackages';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { About } from '../components/sections/About';
 import { Fleet } from '../components/sections/Fleet';
+import { Gallery } from '../components/sections/Gallery';
 import { Services } from '../components/sections/Services';
 import { PopularRoutes } from '../components/sections/PopularRoutes';
 import { WhyChooseUs } from '../components/sections/WhyChooseUs';
@@ -22,7 +24,10 @@ export const Home: React.FC = () => {
       {/* 2. Billing / Minimum km strip */}
       <BillingStrip />
 
-      {/* 3. Simple Process (How It Works) */}
+      {/* 3. Special Rann Utsav Holiday Tour Packages */}
+      <TourPackages />
+
+      {/* 4. Simple Process (How It Works) */}
       <HowItWorks />
 
       {/* 4. About Shree Cab */}
@@ -31,7 +36,10 @@ export const Home: React.FC = () => {
       {/* 5. Fleet Showcase */}
       <Fleet />
 
-      {/* 6. Rides for Every Occasion (Services) */}
+      {/* 6. Real Fleet & Tour Photo Gallery */}
+      <Gallery />
+
+      {/* 7. Rides for Every Occasion (Services) */}
       <Services />
 
       {/* 7. Popular Routes & Transparent Fares */}

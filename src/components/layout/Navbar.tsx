@@ -5,15 +5,17 @@ import { COMPANY } from '../../data/cabData';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
+  { label: 'Packages', href: '#packages' },
   { label: 'Fleet', href: '#fleet' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Services', href: '#services' },
   { label: 'Routes', href: '#routes' },
+  { label: 'About', href: '#about' },
   { label: 'Payment', href: '#payment' },
   { label: 'Contact', href: '#contact' },
 ];
 
-const SECTION_IDS = ['home', 'about', 'services', 'fleet', 'routes', 'payment', 'contact'];
+const SECTION_IDS = ['home', 'packages', 'fleet', 'gallery', 'services', 'routes', 'about', 'payment', 'contact'];
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);

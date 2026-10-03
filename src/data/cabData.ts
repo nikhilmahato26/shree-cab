@@ -1,9 +1,11 @@
-import etiosImg from '../assets/cars/etios.png';
+import auraImg from '../assets/cars/hyundai-aura.png';
+import auraRealImg from '../assets/cars/hyundai-aura-real.jpg';
 import dzireImg from '../assets/cars/hero-sedan.png';
 import ertigaImg from '../assets/cars/hero-mpv.png';
 import carensImg from '../assets/cars/kia-carens.png';
 import innovaImg from '../assets/cars/innova-crysta.png';
 import travellerImg from '../assets/cars/hero-traveller.png';
+import urbaniaPng from '../assets/cars/force-urbania.png';
 
 import heroBg1 from '../assets/hero/hero-bg-1.png';
 import heroBg2 from '../assets/hero/hero-bg-2.png';
@@ -19,6 +21,24 @@ import rannImg from '../assets/images/travel-rann.jpg';
 import bhujImg from '../assets/images/travel-bhuj.jpg';
 import outstationImg from '../assets/images/travel-outstation.jpg';
 
+import package1n2dImg from '../assets/packages/rann-utsav-1n2d.jpg';
+import package2n3dImg from '../assets/packages/rann-utsav-2n3d.jpg';
+
+import gallery01 from '../assets/gallery/fleet-car-01.jpg';
+import gallery02 from '../assets/gallery/fleet-car-02.jpg';
+import gallery03 from '../assets/gallery/fleet-car-03.jpg';
+import gallery04 from '../assets/gallery/fleet-car-04.jpg';
+import gallery05 from '../assets/gallery/fleet-car-05.jpg';
+import gallery06 from '../assets/gallery/fleet-car-06.jpg';
+import gallery07 from '../assets/gallery/fleet-car-07.jpg';
+import gallery08 from '../assets/gallery/fleet-car-08.jpg';
+import gallery09 from '../assets/gallery/fleet-car-09.jpg';
+import gallery10 from '../assets/gallery/fleet-car-10.jpg';
+import gallery11 from '../assets/gallery/fleet-car-11.jpg';
+import gallery12 from '../assets/gallery/fleet-car-12.jpg';
+import gallery13 from '../assets/gallery/fleet-car-13.jpg';
+import gallery14 from '../assets/gallery/fleet-car-14.jpg';
+
 export const COMPANY = {
   name: 'Shree Cab Kutch',
   shortName: 'Shree Cab',
@@ -27,6 +47,7 @@ export const COMPANY = {
   phoneAlt: '9979368035',
   whatsapp: '919727862635',
   email: 'shreetourstravels4@gmail.com',
+  emailAlt: 'chaneparlaxman@gmail.com',
   address: {
     line1: 'Mirjapar Road',
     line2: 'Bhuj, Kutch',
@@ -70,10 +91,10 @@ export interface HeroVehicleOption {
 }
 
 export const HERO_VEHICLES: HeroVehicleOption[] = [
-  { name: 'Toyota Etios', type: 'Sedan', seats: 5, image: etiosImg },
+  { name: 'Hyundai Aura', type: 'Sedan', seats: 5, image: auraImg },
   { name: 'Maruti Suzuki Dzire', type: 'Compact Sedan', seats: 5, image: dzireImg },
   { name: 'Maruti Suzuki Ertiga', type: 'MUV', seats: 7, image: ertigaImg },
-  { name: 'Kia Carens', type: 'MUV Prime', seats: 7, image: carensImg },
+  { name: 'Luxurious Urbania Vans', type: 'Luxury Van', seats: 12, image: urbaniaPng },
   { name: 'Toyota Innova Crysta', type: 'Premium SUV', seats: 7, image: innovaImg },
   { name: 'Tempo Traveller', type: 'Traveller', seats: 12, image: travellerImg },
 ];
@@ -195,15 +216,15 @@ export interface FleetVehicle {
 
 export const FLEET_DATA: FleetVehicle[] = [
   {
-    name: 'Toyota Etios',
-    type: 'Comfort Sedan',
-    image: etiosImg,
+    name: 'Hyundai Aura',
+    type: 'Executive Sedan',
+    image: auraImg,
     seats: 5,
     ac: true,
     pricePerKm: 11,
     icon: '🚗',
-    suitableFor: ['Local Travel', 'Airport Transfers', 'Business Trips'],
-    specs: ['5 Seater (4+1)', 'Air Conditioned', 'Spacious Boot Space'],
+    suitableFor: ['Local Travel', 'Airport Transfers', 'Outstation Trips'],
+    specs: ['5 Seater (4+1)', 'Air Conditioned', 'Spacious Boot Space', 'Smooth Highway Ride'],
     featured: false,
   },
   {
@@ -231,15 +252,15 @@ export const FLEET_DATA: FleetVehicle[] = [
     featured: false,
   },
   {
-    name: 'Kia Carens',
-    type: 'Premium MUV',
-    image: carensImg,
-    seats: 7,
+    name: 'Luxurious Urbania Vans',
+    type: 'Luxury Passenger Van',
+    image: urbaniaPng,
+    seats: 12,
     ac: true,
-    pricePerKm: 15,
+    pricePerKm: 26,
     icon: '🚐',
-    suitableFor: ['Long Distance', 'Luxury Comfort', 'Corporate Travel'],
-    specs: ['7 Seater (6+1)', 'Plush Cabin Interiors', 'Individual AC Louvers'],
+    suitableFor: ['VIP Corporate Travel', 'Family Tours', 'Rann Utsav Luxury Trip'],
+    specs: ['10 to 14 Seater', 'Plush Captain Recliners', 'High Roof Luxury Cabin', 'Individual AC & USB'],
     featured: false,
   },
   {
@@ -424,7 +445,7 @@ export const FAQS = [
   },
   {
     q: 'What types of vehicles are available in your fleet?',
-    a: 'Our AC fleet includes Maruti Suzuki Dzire, Toyota Etios, Maruti Suzuki Ertiga, Kia Carens, Toyota Innova Crysta, and Force Tempo Traveller (12 to 20 seats) for large families and groups.',
+    a: 'Our AC fleet includes Maruti Suzuki Dzire, Hyundai Aura, Maruti Suzuki Ertiga, Luxurious Urbania Vans, Toyota Innova Crysta, and Force Tempo Traveller (12 to 20 seats) for large families and groups.',
   },
   {
     q: 'Are your fares transparent with no hidden charges?',
@@ -440,9 +461,239 @@ export const FAQS = [
   },
 ];
 
+export interface TourPackage {
+  id: string;
+  title: string;
+  duration: string;
+  nights: number;
+  days: number;
+  price: number;
+  priceFormatted: string;
+  priceNote: string;
+  tagline: string;
+  hindiSlogan: string;
+  badge: string;
+  posterImage: string;
+  inclusions: string[];
+  destinations: string[];
+  servicesIncluded: string[];
+  featured?: boolean;
+}
+
+export const TOUR_PACKAGES: TourPackage[] = [
+  {
+    id: 'rann-utsav-1n-2d',
+    title: 'Rann Utsav Kutch Package',
+    duration: '1 Night | 2 Days',
+    nights: 1,
+    days: 2,
+    price: 8000,
+    priceFormatted: '₹8,000/-',
+    priceNote: 'Per Person',
+    tagline: "India's Largest Desert Cultural Festival",
+    hindiSlogan: 'कच्छ नही देखा तो कुछ नही देखा!!!',
+    badge: 'Popular Choice',
+    posterImage: package1n2dImg,
+    inclusions: [
+      'Hotel & Resort Accommodation Booking',
+      'Dedicated Private AC Cab for Entire Sightseeing',
+      'Pick Up & Drop (Bhuj to Bhuj)',
+      'Experienced Local Tourist Guide Support',
+      'White Desert (Dhordo) Camel Safari Experience',
+      'Sunset at White Rann & Cultural Craft Village Visit',
+    ],
+    destinations: [
+      'White Desert (Dhordo)',
+      'Kala Dungar (Sunset Point)',
+      'Gandhi nu Gam (Handicrafts)',
+      'Bhuj Heritage Landmarks',
+    ],
+    servicesIncluded: [
+      'Rann Utsav Package',
+      'Kutch Tour Packages',
+      'Hotel and Resort Booking',
+      'Tourist Guide',
+      'Car Rental Services',
+    ],
+    featured: false,
+  },
+  {
+    id: 'rann-utsav-2n-3d',
+    title: 'Grand Rann Utsav & Kutch Tour',
+    duration: '2 Nights | 3 Days',
+    nights: 2,
+    days: 3,
+    price: 12450,
+    priceFormatted: '₹12,450/-',
+    priceNote: 'Per Person',
+    tagline: 'Complete Kutch Holiday • Desert, Heritage & Coastline',
+    hindiSlogan: 'If you haven\'t seen Kutch, you haven\'t seen anything.',
+    badge: 'All-Inclusive Value',
+    posterImage: package2n3dImg,
+    inclusions: [
+      'Breakfast & Dinner Unlimited',
+      'Sightseeing Throughout in Dedicated Pvt AC Cab',
+      '3-Star Hotel / Resort Accommodation',
+      'Pick Up And Drop (Bhuj Railway Station / Airport To Bhuj)',
+      'Road to Heaven (Dholavira Salt Highway) Excursion',
+      'Mandvi Beach & Vijay Vilas Palace Tour',
+      'All Driver Allowances, Tolls & Parking Covered',
+    ],
+    destinations: [
+      'Rann of Kutch (White Salt Desert)',
+      'Road to Heaven (Dholavira Highway)',
+      'Vijay Vilas Palace (Mandvi)',
+      'Mandvi Beach & Watersports',
+      'Kala Dungar (Magnetic Hill View)',
+      'Bhuj City Heritage Bazaars',
+    ],
+    servicesIncluded: [
+      'Breakfast In Dinner Unlimited',
+      'Sightseeing Through Pvt AC Cab',
+      '3 Star Hotel Accommodation',
+      'Pick Up And Drop Bhuj To Bhuj',
+    ],
+    featured: true,
+  },
+];
+
+export interface GalleryItem {
+  id: string;
+  src: string;
+  title: string;
+  category: 'Sedans' | 'SUVs' | 'Traveller' | 'Trips';
+  caption: string;
+  vehicleName: string;
+}
+
+export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    id: 'gallery-aura',
+    src: auraRealImg,
+    title: 'Hyundai Aura Commercial Sedan (GJ18 BX 1309)',
+    category: 'Sedans',
+    caption: 'Official Shree Cab white Hyundai Aura commercial taxi ready for Bhuj local and Gujarat outstation travel.',
+    vehicleName: 'Hyundai Aura',
+  },
+  {
+    id: 'gallery-01',
+    src: gallery01,
+    title: 'Toyota Innova Crysta AC Premium',
+    category: 'SUVs',
+    caption: 'Executive 7-seater AC SUV for Rann Utsav & VIP outstation travel.',
+    vehicleName: 'Toyota Innova Crysta',
+  },
+  {
+    id: 'gallery-02',
+    src: gallery02,
+    title: 'Force Urbania Luxury Van',
+    category: 'Traveller',
+    caption: 'Ultra-luxurious high-roof passenger van for family & group trips in Kutch.',
+    vehicleName: 'Force Urbania Van',
+  },
+  {
+    id: 'gallery-03',
+    src: gallery03,
+    title: 'Tempo Traveller Tourist Fleet',
+    category: 'Traveller',
+    caption: '12 to 20-seater spacious AC traveller for pilgrimage & wedding groups.',
+    vehicleName: 'Tempo Traveller',
+  },
+  {
+    id: 'gallery-04',
+    src: gallery04,
+    title: 'Maruti Suzuki Ertiga Family MUV',
+    category: 'SUVs',
+    caption: 'Comfortable 7-seater family car for Kutch sightseeing & airport transfers.',
+    vehicleName: 'Maruti Suzuki Ertiga',
+  },
+  {
+    id: 'gallery-05',
+    src: gallery05,
+    title: 'Maruti Suzuki Dzire AC Sedan',
+    category: 'Sedans',
+    caption: 'Clean, efficient, and pocket-friendly sedan for local & outstation rides.',
+    vehicleName: 'Maruti Suzuki Dzire',
+  },
+  {
+    id: 'gallery-06',
+    src: gallery06,
+    title: 'White Desert Rann Tour Cab',
+    category: 'Trips',
+    caption: 'On-location at Dhordo White Rann during evening sunset hours.',
+    vehicleName: 'Sightseeing Tour',
+  },
+  {
+    id: 'gallery-07',
+    src: gallery07,
+    title: 'Highway Outstation Cruiser',
+    category: 'Sedans',
+    caption: 'Ready for long-distance Ahmedabad, Rajkot & Gujarat expressways.',
+    vehicleName: 'Hyundai Aura / Dzire',
+  },
+  {
+    id: 'gallery-08',
+    src: gallery08,
+    title: 'Premium Fleet at Mandvi Beach',
+    category: 'Trips',
+    caption: 'Coastal tour and palace excursion trip with family travelers.',
+    vehicleName: 'Mandvi Sightseeing',
+  },
+  {
+    id: 'gallery-09',
+    src: gallery09,
+    title: 'Clean & Sanitized Cabin Interiors',
+    category: 'SUVs',
+    caption: 'Plush reclining captain seats, ambient cooling, and pristine cleanliness.',
+    vehicleName: 'Innova Crysta Interior',
+  },
+  {
+    id: 'gallery-10',
+    src: gallery10,
+    title: 'Road to Heaven Dholavira Expedition',
+    category: 'Trips',
+    caption: 'Scenic drive along the salt desert highway heading to UNESCO Dholavira.',
+    vehicleName: 'Road to Heaven Tour',
+  },
+  {
+    id: 'gallery-11',
+    src: gallery11,
+    title: 'Kia Carens Premium Family MUV',
+    category: 'SUVs',
+    caption: 'Spacious and smooth long-haul tour vehicle with ample luggage room.',
+    vehicleName: 'Kia Carens',
+  },
+  {
+    id: 'gallery-12',
+    src: gallery12,
+    title: 'Wedding & Event Luxury Convoy',
+    category: 'Traveller',
+    caption: 'Coordinated guest pickup & drop services for functions across Bhuj.',
+    vehicleName: 'Wedding Fleet',
+  },
+  {
+    id: 'gallery-13',
+    src: gallery13,
+    title: 'Temple Pilgrimage Tour Cab',
+    category: 'Trips',
+    caption: 'Devotional trip to Mata no Madh, Narayan Sarovar & Koteshwar Mahadev.',
+    vehicleName: 'Pilgrimage Circuit',
+  },
+  {
+    id: 'gallery-14',
+    src: gallery14,
+    title: 'Airport & Railway Station Pickup Fleet',
+    category: 'Sedans',
+    caption: 'Punctual 24×7 transfer service at Bhuj Railway Station & Airport.',
+    vehicleName: 'Airport Transfer',
+  },
+];
+
 export const FOOTER_LINKS = {
   quickLinks: [
     { label: 'Home', href: '#home' },
+    { label: 'Tour Packages', href: '#packages' },
+    { label: 'Photo Gallery', href: '#gallery' },
     { label: 'About Us', href: '#about' },
     { label: 'Our Services', href: '#services' },
     { label: 'Vehicle Fleet', href: '#fleet' },
