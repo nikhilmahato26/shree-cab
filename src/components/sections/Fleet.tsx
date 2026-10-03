@@ -73,13 +73,16 @@ export const Fleet: React.FC = () => {
                   </div>
 
                   {/* Vehicle Image */}
-                  <div className="h-44 sm:h-48 my-3 flex items-center justify-center p-2 group overflow-hidden">
+                  <div className="relative w-full aspect-[16/10] my-3 rounded-2xl overflow-hidden bg-slate-100 group shadow-sm border border-gray-100">
                     <img
                       src={vehicle.image}
                       alt={vehicle.name}
-                      className="max-h-full max-w-full object-contain transition-transform duration-400 group-hover:scale-108"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
+                    <span className="absolute bottom-2.5 right-2.5 bg-black/65 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+                      <Check className="w-3 h-3 text-[#FFD200]" /> Real Fleet
+                    </span>
                   </div>
 
                   {/* Capacity & Specs Badges */}

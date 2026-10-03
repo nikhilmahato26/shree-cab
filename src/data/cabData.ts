@@ -7,6 +7,13 @@ import innovaImg from '../assets/cars/innova-crysta.png';
 import travellerImg from '../assets/cars/hero-traveller.png';
 import urbaniaPng from '../assets/cars/force-urbania.png';
 
+import fleetAuraImg from '../assets/fleet/fleet-aura.jpg';
+import fleetDzireImg from '../assets/fleet/fleet-dzire.jpg';
+import fleetErtigaImg from '../assets/fleet/fleet-ertiga.jpg';
+import fleetUrbaniaImg from '../assets/fleet/fleet-urbania.jpg';
+import fleetInnovaImg from '../assets/fleet/fleet-innova.jpg';
+import fleetTravellerImg from '../assets/fleet/fleet-traveller.jpg';
+
 import heroBg1 from '../assets/hero/hero-bg-1.png';
 import heroBg2 from '../assets/hero/hero-bg-2.png';
 import heroBg3 from '../assets/hero/hero-bg-3.png';
@@ -218,7 +225,7 @@ export const FLEET_DATA: FleetVehicle[] = [
   {
     name: 'Hyundai Aura',
     type: 'Executive Sedan',
-    image: auraImg,
+    image: fleetAuraImg,
     seats: 5,
     ac: true,
     pricePerKm: 11,
@@ -230,7 +237,7 @@ export const FLEET_DATA: FleetVehicle[] = [
   {
     name: 'Maruti Suzuki Dzire',
     type: 'Compact Sedan',
-    image: dzireImg,
+    image: fleetDzireImg,
     seats: 5,
     ac: true,
     pricePerKm: 12,
@@ -242,7 +249,7 @@ export const FLEET_DATA: FleetVehicle[] = [
   {
     name: 'Maruti Suzuki Ertiga',
     type: 'Family MUV',
-    image: ertigaImg,
+    image: fleetErtigaImg,
     seats: 7,
     ac: true,
     pricePerKm: 13,
@@ -254,7 +261,7 @@ export const FLEET_DATA: FleetVehicle[] = [
   {
     name: 'Luxurious Urbania Vans',
     type: 'Luxury Passenger Van',
-    image: urbaniaPng,
+    image: fleetUrbaniaImg,
     seats: 12,
     ac: true,
     pricePerKm: 26,
@@ -266,7 +273,7 @@ export const FLEET_DATA: FleetVehicle[] = [
   {
     name: 'Toyota Innova Crysta',
     type: 'Executive SUV',
-    image: innovaImg,
+    image: fleetInnovaImg,
     seats: 7,
     ac: true,
     pricePerKm: 18,
@@ -278,7 +285,7 @@ export const FLEET_DATA: FleetVehicle[] = [
   {
     name: 'Tempo Traveller & Urbania',
     type: 'Group Passenger Vehicle',
-    image: travellerImg,
+    image: fleetTravellerImg,
     seats: 12,
     ac: true,
     pricePerKm: 24,
