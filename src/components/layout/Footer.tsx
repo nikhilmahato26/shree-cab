@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand & Bio */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4 inline-flex items-center gap-2.5 rounded-xl bg-white px-3.5 py-2">
-              <span className="text-2xl">🚕</span>
+              <img src="/logo.png" alt="Shree Cab Logo" className="w-8 h-8 object-contain" />
               <div>
                 <span className="font-black text-lg text-[#0A1F44] tracking-tight block leading-tight">
                   SHREE<span className="text-[#003B95]">CAB</span>

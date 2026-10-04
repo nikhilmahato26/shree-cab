@@ -25,8 +25,8 @@ export const Home: React.FC = () => {
       {/* 2. Billing / Minimum km strip */}
       <BillingStrip />
 
-      {/* 3. Special Rann Utsav Holiday Tour Packages */}
-      <TourPackages />
+      {/* 8. ONE WAY CABS DAILY SERVICES */}
+      <OneWayServices />
 
       {/* 4. Simple Process (How It Works) */}
       <HowItWorks />
@@ -43,8 +43,8 @@ export const Home: React.FC = () => {
       {/* 7. Rides for Every Occasion (Services) */}
       <Services />
 
-      {/* 8. ONE WAY CABS DAILY SERVICES */}
-      <OneWayServices />
+      {/* 3. Special Rann Utsav Holiday Tour Packages */}
+      <TourPackages />
 
       {/* 9. Popular Routes & Transparent Fares */}
       <PopularRoutes />

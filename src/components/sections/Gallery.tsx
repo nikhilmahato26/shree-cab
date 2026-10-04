@@ -13,14 +13,13 @@ import {
 import { GALLERY_ITEMS, GalleryItem, COMPANY } from '../../data/cabData';
 import { useToast } from '../ui/useToast';
 
-type CategoryFilter = 'All' | 'SUVs' | 'Sedans' | 'Traveller' | 'Trips';
+type CategoryFilter = 'All' | 'SUVs' | 'Sedans' | 'Traveller';
 
 const CATEGORIES: { label: string; value: CategoryFilter }[] = [
-  { label: 'All Photos (14)', value: 'All' },
-  { label: 'SUVs & Crysta', value: 'SUVs' },
-  { label: 'Sedans (Dzire/Aura)', value: 'Sedans' },
+  { label: 'All Vehicles', value: 'All' },
+  { label: 'Sedans (Dzire / Aura)', value: 'Sedans' },
+  { label: 'SUVs (Ertiga / Crysta)', value: 'SUVs' },
   { label: 'Traveller & Urbania', value: 'Traveller' },
-  { label: 'Kutch Tour Glimpses', value: 'Trips' },
 ];
 
 export const Gallery: React.FC = () => {

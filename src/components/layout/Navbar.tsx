@@ -83,9 +83,7 @@ export const Navbar: React.FC = () => {
             className="flex items-center gap-3 text-left focus:outline-none focus:ring-2 focus:ring-[#003B95]/40 rounded-lg group"
             aria-label="Shree Cab Home"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 bg-[#003B95] rounded-xl flex items-center justify-center text-[#FFD200] font-black text-xl shadow-md group-hover:scale-105 transition-transform">
-              🚕
-            </div>
+            <img src="/logo.png" alt="Shree Cab Logo" className="w-10 h-10 sm:w-11 sm:h-11 object-contain rounded-xl shadow-md group-hover:scale-105 transition-transform" />
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-extrabold text-xl sm:text-2xl tracking-tight text-[#0A1F44]">
