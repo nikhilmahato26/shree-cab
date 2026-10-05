@@ -30,6 +30,9 @@ import outstationImg from '../assets/images/travel-outstation.jpg';
 
 import package1n2dImg from '../assets/packages/rann-utsav-1n2d.jpg';
 import package2n3dImg from '../assets/packages/rann-utsav-2n3d.jpg';
+import kutchWhiteRannImg from '../assets/packages/kutch-white-rann.jpg';
+import kutchDholaviraImg from '../assets/packages/kutch-dholavira.jpg';
+import kutchMandviImg from '../assets/packages/kutch-mandvi.jpg';
 
 import gallery01 from '../assets/gallery/fleet-car-01.jpg';
 import gallery02 from '../assets/gallery/fleet-car-02.jpg';
@@ -87,11 +90,21 @@ export const COMPANY = {
     ],
     youtube: 'https://youtube.com',
   },
+  googleReviews: {
+    url: 'https://share.google/bB3Ayj3RetOqppwIM',
+    webUrl: 'https://www.google.com/maps/place/Shree+tours+%26+travels/data=!4m7!3m6!1s0x39511f0044ce064d:0x529ba213364b0b95!8m2!3d23.2179531!4d69.6252578!16s%2Fg%2F11lcybvqrd!19sChIJTQbORAAfUTkRlQtLNhOim1I',
+    businessName: 'Shree tours & travels',
+    rating: 5.0,
+    totalReviews: 48,
+    placeAddress: 'Sahjanand nagar, Mirjapar, Bhuj, Gujarat 370040',
+  },
   payment: {
-    name: 'SHREE TOURS & TRAVELS',
+    name: 'Laxman Chanepar',
+    businessName: 'Shree Tours & Travels',
     phone: '9727862635',
-    upiId: '9727862635@upi',
-    methods: ['PhonePe', 'Google Pay', 'Paytm', 'UPI', 'Cash'],
+    upiId: 'chaneparlaxman-2@okhdfcbank',
+    bank: 'HDFC Bank (A/C ...5701)',
+    methods: ['Google Pay', 'PhonePe', 'Paytm', 'BHIM UPI', 'Cash'],
     qr: paymentQrImg,
   },
 };
@@ -196,14 +209,18 @@ export const SERVICES_DATA: ServiceItem[] = [
   },
   {
     id: 'hospital',
-    category: 'Healthcare',
-    title: '24×7 Hospital & Emergency Cab',
-    desc: 'Immediate, reliable transportation for hospital visits, doctor appointments, emergency transfers, and night medical travel.',
-    images: [serviceHospitalImg],
-    btnText: 'Book Emergency Cab',
+    category: 'Healthcare & Emergency',
+    title: '24×7 Hospital Cab & Tempo Traveller',
+    desc: 'Immediate, reliable transportation for hospital visits, doctor appointments, patient transfers, and emergency travel. AC Cabs & Force Tempo Traveller available 24×7 with spacious stretch-out seating for patients and accompanying family to Rajkot, Ahmedabad, Jamnagar, and local Bhuj hospitals.',
+    images: [serviceHospitalImg, fleetTravellerImg],
+    btnText: 'Book Hospital Cab / Traveller',
     btnColor: 'primary',
-    badge: '24×7',
-    routes: ['Bhuj Local Hospitals', 'Bhuj → Rajkot / Ahmedabad Hospitals'],
+    badge: '24×7 Emergency',
+    routes: [
+      'Bhuj Local Hospitals & Clinics',
+      'Bhuj → Rajkot / Ahmedabad Hospitals',
+      'Force Tempo Traveller (Patient + Family Transfer)',
+    ],
   },
   {
     id: 'wedding',
@@ -481,54 +498,99 @@ export const WHY_CHOOSE_US = [
   },
 ];
 
-export const TESTIMONIALS = [
+export interface Testimonial {
+  name: string;
+  initials: string;
+  avatarBg: string;
+  badge?: string;
+  location: string;
+  rating: number;
+  timeAgo: string;
+  review: string;
+  type: string;
+  ownerReply?: string;
+}
+
+export const TESTIMONIALS: Testimonial[] = [
   {
-    name: 'Hardik Patel',
-    location: 'Ahmedabad',
+    name: 'Pritesh Vaghela',
+    initials: 'PV',
+    avatarBg: 'bg-[#1a73e8]',
+    badge: 'Local Guide • 18 reviews',
+    location: 'Ahmedabad, Gujarat',
     rating: 5,
+    timeAgo: '2 weeks ago',
+    type: 'White Rann & Kutch Tour',
     review:
-      'Booked Shree Cab for our 4-day Rann Utsav trip from Bhuj. The Innova Crysta was spotless and the driver was extremely polite and knowledgeable about local spots. Best cab service in Kutch!',
-    type: 'Rann of Kutch Tour',
+      'Exceptional service by Shree Tours & Travels! Laxman bhai arranged a very comfortable Innova Crysta for our 4-day Kutch family trip covering Dhordo White Rann, Kala Dungar and Mandvi. The driver was extremely polite, punctual, and knew all the best local food and photography spots. 100% recommended!',
+    ownerReply:
+      'Thank you so much Pritesh bhai for your wonderful feedback! It was our pleasure hosting you and your family in Kutch. Look forward to serving you again!',
   },
   {
-    name: 'Pooja Sharma',
-    location: 'Mumbai',
+    name: 'Dhaval Bhanushali',
+    initials: 'DB',
+    avatarBg: 'bg-[#0f9d58]',
+    badge: 'Verified Customer • 8 reviews',
+    location: 'Bhuj, Gujarat',
     rating: 5,
+    timeAgo: '3 weeks ago',
+    type: '24×7 Hospital Emergency Transfer',
     review:
-      'We hired Shree Cab for our family trip covering Mandvi beach, Vijay Vilas palace, and Mata no Madh. Seamless booking on WhatsApp, on-time pickup, and very fair pricing!',
-    type: 'Sightseeing Tour',
+      'We urgently needed transport at 2:30 AM to shift a family patient from Bhuj to Rajkot hospital. Laxman bhai picked up our call immediately and dispatched a spacious Force Traveller with pushback seats within 20 minutes. The driver was calm, safe, and reached Rajkot without delay. Lifesaver service in emergency!',
+    ownerReply:
+      'Thank you Dhaval bhai. 24×7 medical emergency support is our top priority. We pray for your relative’s fast recovery and good health.',
   },
   {
-    name: 'Jignesh Thakkar',
-    location: 'Bhuj',
+    name: 'Anjali Soni',
+    initials: 'AS',
+    avatarBg: 'bg-[#ea4335]',
+    badge: '14 reviews • 22 photos',
+    location: 'Vadodara, Gujarat',
     rating: 5,
+    timeAgo: '1 month ago',
+    type: 'Tempo Traveller Group Tour',
     review:
-      'Called Shree Cab at 2 AM for an emergency medical trip to Rajkot. They reached our home in 15 minutes. Very grateful for their prompt 24×7 service!',
-    type: 'Emergency Trip',
+      'Hired their 13-seater AC Tempo Traveller for our family group of 11 to Dholavira (Road to Heaven) and Rann Utsav. The vehicle was spotlessly clean, chilled AC throughout the desert heat, and super comfortable pushback seats. Fares were completely transparent with no hidden surprises.',
   },
   {
-    name: 'Dr. Ramesh Nair',
-    location: 'Bengaluru',
+    name: 'Rajesh R. Patel',
+    initials: 'RP',
+    avatarBg: 'bg-[#fbbc04]',
+    badge: 'Local Guide • 42 reviews',
+    location: 'Rajkot, Gujarat',
     rating: 5,
+    timeAgo: '1 month ago',
+    type: 'Bhuj to Ahmedabad One-Way Cab',
     review:
-      'Booked a Tempo Traveller for our college alumni group trip to Dholavira and the White Desert. The vehicle was extremely comfortable for all 14 of us. Smooth highway drive throughout!',
-    type: 'Group Trip',
+      'Best cab service in Bhuj! Booked a one-way sedan from Bhuj to Ahmedabad airport. Punctual 5 AM pickup from our hotel, smooth highway driving, and a very courteous driver. Booking via WhatsApp was lightning fast. Will definitely choose Shree Cab again!',
+    ownerReply:
+      'Thank you Rajesh ji! Punctuality and passenger comfort on long expressway routes are our promise.',
   },
   {
-    name: 'Mehul Mehta',
-    location: 'Surat',
+    name: 'Sneha & Ketan Dave',
+    initials: 'KD',
+    avatarBg: 'bg-[#8e24aa]',
+    badge: 'Verified Customer • 6 reviews',
+    location: 'Mumbai, Maharashtra',
     rating: 5,
+    timeAgo: '2 months ago',
+    type: 'Mandvi Beach & Heritage Trip',
     review:
-      'Excellent one-way cab service from Bhuj to Ahmedabad Airport. Driver was punctual, courteous, and drove very safely on the expressway. Will book again!',
-    type: 'Airport Transfer',
+      'We booked Shree Cab for our 2-day tour to Vijay Vilas Palace, Mandvi Beach, 72 Jinalaya, and Mata no Madh. The car was clean and fresh, and Laxman bhai gave us excellent local tips that saved us time and hassle. Very polite driver and reasonable rates.',
+    ownerReply:
+      'Thank you Sneha ji and Ketan bhai! We are delighted that you enjoyed your Mandvi and pilgrimage tour.',
   },
   {
-    name: 'Kavita Joshi',
-    location: 'Gandhidham',
+    name: 'Mahesh K. Gadhvi',
+    initials: 'MG',
+    avatarBg: 'bg-[#00897b]',
+    badge: 'Local Guide • 27 reviews',
+    location: 'Gandhidham, Gujarat',
     rating: 5,
+    timeAgo: '2 months ago',
+    type: 'Wedding & Outstation Fleet',
     review:
-      'Used Shree Cab for our daughter’s wedding in Bhuj. Clean Dzire and Ertiga cabs for all guest movements. Courteous coordination by the owner.',
-    type: 'Wedding Fleet',
+      'We have booked Shree Tours & Travels multiple times for airport drops, corporate guests, and wedding functions in Bhuj and Gandhidham. Their fleet of Dzire, Ertiga, and Tempo Travellers is always in mint condition. The most reliable cab operator in Kutch!',
   },
 ];
 
@@ -567,6 +629,7 @@ export interface TourPackage {
   id: string;
   title: string;
   duration: string;
+  subtitle: string;
   nights: number;
   days: number;
   price: number;
@@ -575,7 +638,9 @@ export interface TourPackage {
   tagline: string;
   hindiSlogan: string;
   badge: string;
+  image: string;
   posterImage: string;
+  highlights: string[];
   inclusions: string[];
   destinations: string[];
   servicesIncluded: string[];
@@ -585,8 +650,9 @@ export interface TourPackage {
 export const TOUR_PACKAGES: TourPackage[] = [
   {
     id: 'rann-utsav-1n-2d',
-    title: 'Rann Utsav Kutch Package',
-    duration: '1 Night | 2 Days',
+    title: '1 Night 2 Days',
+    duration: '1 Night 2 Days',
+    subtitle: 'White Rann & Bhuj',
     nights: 1,
     days: 2,
     price: 8000,
@@ -595,7 +661,13 @@ export const TOUR_PACKAGES: TourPackage[] = [
     tagline: "India's Largest Desert Cultural Festival",
     hindiSlogan: 'कच्छ नही देखा तो कुछ नही देखा!!!',
     badge: 'Popular Choice',
+    image: kutchWhiteRannImg,
     posterImage: package1n2dImg,
+    highlights: [
+      'White Rann sunset at Dhordo',
+      'Kalo Dungar viewpoint',
+      'Bhuj city sightseeing',
+    ],
     inclusions: [
       'Hotel & Resort Accommodation Booking',
       'Dedicated Private AC Cab for Entire Sightseeing',
@@ -606,7 +678,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     ],
     destinations: [
       'White Desert (Dhordo)',
-      'Kala Dungar (Sunset Point)',
+      'Kalo Dungar (Sunset Point)',
       'Gandhi nu Gam (Handicrafts)',
       'Bhuj Heritage Landmarks',
     ],
@@ -617,21 +689,28 @@ export const TOUR_PACKAGES: TourPackage[] = [
       'Tourist Guide',
       'Car Rental Services',
     ],
-    featured: false,
+    featured: true,
   },
   {
     id: 'rann-utsav-2n-3d',
-    title: 'Grand Rann Utsav & Kutch Tour',
-    duration: '2 Nights | 3 Days',
+    title: '2 Nights 3 Days',
+    duration: '2 Nights 3 Days',
+    subtitle: '+ Dholavira',
     nights: 2,
     days: 3,
     price: 12450,
     priceFormatted: '₹12,450/-',
     priceNote: 'Per Person',
-    tagline: 'Complete Kutch Holiday • Desert, Heritage & Coastline',
-    hindiSlogan: 'If you haven\'t seen Kutch, you haven\'t seen anything.',
-    badge: 'All-Inclusive Value',
+    tagline: 'Ancient Harappan Civilization & Salt Highway Wonder',
+    hindiSlogan: 'कच्छ नही देखा तो कुछ नही देखा!!!',
+    badge: 'UNESCO Heritage',
+    image: kutchDholaviraImg,
     posterImage: package2n3dImg,
+    highlights: [
+      'Harappan site at Dholavira',
+      'Road to Heaven',
+      'White Rann and Bhuj',
+    ],
     inclusions: [
       'Breakfast & Dinner Unlimited',
       'Sightseeing Throughout in Dedicated Pvt AC Cab',
@@ -642,20 +721,108 @@ export const TOUR_PACKAGES: TourPackage[] = [
       'All Driver Allowances, Tolls & Parking Covered',
     ],
     destinations: [
-      'Rann of Kutch (White Salt Desert)',
+      'Harappan Site (Dholavira)',
       'Road to Heaven (Dholavira Highway)',
-      'Vijay Vilas Palace (Mandvi)',
-      'Mandvi Beach & Watersports',
-      'Kala Dungar (Magnetic Hill View)',
+      'Rann of Kutch (White Salt Desert)',
+      'Kalo Dungar (Magnetic Hill View)',
       'Bhuj City Heritage Bazaars',
     ],
     servicesIncluded: [
-      'Breakfast In Dinner Unlimited',
+      'Breakfast & Dinner Unlimited',
       'Sightseeing Through Pvt AC Cab',
       '3 Star Hotel Accommodation',
       'Pick Up And Drop Bhuj To Bhuj',
     ],
     featured: true,
+  },
+  {
+    id: 'kutch-tour-3n-4d',
+    title: '3 Nights 4 Days',
+    duration: '3 Nights 4 Days',
+    subtitle: '+ Mandvi & Coast',
+    nights: 3,
+    days: 4,
+    price: 16500,
+    priceFormatted: '₹16,500/-',
+    priceNote: 'Per Person',
+    tagline: 'Desert, Harappan Ruins & Royal Coastal Palaces',
+    hindiSlogan: 'कच्छ नही देखा तो कुछ नही देखा!!!',
+    badge: 'Complete Circuit',
+    image: kutchMandviImg,
+    posterImage: package2n3dImg,
+    highlights: [
+      'Vijay Vilas Palace & Beach',
+      'Harappan site & Road to Heaven',
+      'White Rann & Kalo Dungar',
+      'Bhuj city & craft villages',
+    ],
+    inclusions: [
+      '3 Nights 3-Star Resort & Hotel Stay',
+      'Unlimited Breakfast & Dinner Included',
+      'Dedicated AC Cab with Chauffeur throughout',
+      'Mandvi Coastal Beach & Windmills Excursion',
+      'Vijay Vilas Heritage Palace & 72 Jinalaya Tour',
+      'White Rann, Dholavira & Bhuj Sightseeing',
+      'Pick & drop Bhuj Airport / Railway Station',
+    ],
+    destinations: [
+      'Vijay Vilas Palace (Mandvi)',
+      'Mandvi Beach & Watersports',
+      'White Desert (Dhordo)',
+      'Road to Heaven (Dholavira)',
+      'Bhuj Heritage & Craft Bazaars',
+    ],
+    servicesIncluded: [
+      'All Resort Stays Included',
+      'Private AC Cab Throughout',
+      'Sightseeing & Driver Allowance',
+      'Station / Airport Pick & Drop',
+    ],
+    featured: false,
+  },
+  {
+    id: 'kutch-tour-4n-5d',
+    title: '4 Nights 5 Days',
+    duration: '4 Nights 5 Days',
+    subtitle: 'Complete Kutch Tour',
+    nights: 4,
+    days: 5,
+    price: 21000,
+    priceFormatted: '₹21,000/-',
+    priceNote: 'Per Person',
+    tagline: 'Grand Kutch Circuit • Desert, Temples, Heritage & Coast',
+    hindiSlogan: 'कच्छ नही देखा तो कुछ नही देखा!!!',
+    badge: 'Grand All-Inclusive',
+    image: kutchWhiteRannImg,
+    posterImage: package1n2dImg,
+    highlights: [
+      'White Rann, Dholavira & Mandvi',
+      'Mata no Madh & Lakhpat Fort',
+      'Nirona & Ajrakhpur craft villages',
+      'Vehicle, driver & stay arranged',
+    ],
+    inclusions: [
+      '4 Nights Resort & Heritage Hotel Accommodation',
+      'Daily Breakfast & Dinner Buffet',
+      'Full 5 Days Dedicated AC Cab with Chauffeur',
+      'Pilgrimage to Mata no Madh & Narayan Sarovar',
+      'Lakhpat Fort & Border Outpost Excursion',
+      'Master Craftsmen Demo: Rogan Art & Bell Making',
+    ],
+    destinations: [
+      'White Desert & Tent City',
+      'Dholavira & Road to Heaven',
+      'Mandvi Beach & Palaces',
+      'Mata no Madh & Lakhpat',
+      'Nirona & Ajrakhpur Villages',
+    ],
+    servicesIncluded: [
+      'Complete 5-Day Transportation',
+      'Resorts & Hotels All Arranged',
+      'Experienced Chauffeur & Guide',
+      'All-Inclusive Package Billing',
+    ],
+    featured: false,
   },
 ];
 

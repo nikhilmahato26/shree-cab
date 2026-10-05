@@ -1,7 +1,8 @@
 import React from 'react';
-import { Phone, MessageCircle, CalendarCheck } from 'lucide-react';
+import { Phone, SquarePen } from 'lucide-react';
 import { BUSINESS_INFO } from '../../utils/contact';
 import { getGeneralWhatsAppUrl } from '../../utils/whatsapp';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 interface MobileBottomBarProps {
   onBookClick?: () => void;
@@ -21,15 +22,15 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onBookClick })
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-lg border-t border-slate-200/90 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-3 py-2.5">
-      <div className="grid grid-cols-3 gap-2 max-w-md mx-auto">
+      <div className="grid grid-cols-3 divide-x divide-gray-200 max-w-md mx-auto">
         {/* Call Now */}
         <a
           href={`tel:${BUSINESS_INFO.primaryPhone}`}
-          className="flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-slate-900 text-white font-semibold text-xs active:scale-95 transition-all shadow-sm"
+          className="flex flex-col items-center justify-center py-1.5 px-2 text-[#0A1F44] active:scale-95 transition-transform"
           aria-label="Call Shree Cab Kutch"
         >
-          <Phone className="w-4 h-4 text-amber-400 mb-0.5" />
-          <span>Call Now</span>
+          <Phone className="w-5 h-5 text-[#D48B00] mb-0.5" />
+          <span className="text-xs font-semibold text-gray-800">Call</span>
         </a>
 
         {/* WhatsApp */}
@@ -37,22 +38,22 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({ onBookClick })
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-emerald-600 text-white font-semibold text-xs active:scale-95 transition-all shadow-sm"
+          className="flex flex-col items-center justify-center py-1.5 px-2 text-[#0A1F44] active:scale-95 transition-transform"
           aria-label="Enquire on WhatsApp"
         >
-          <MessageCircle className="w-4 h-4 mb-0.5" />
-          <span>WhatsApp</span>
+          <WhatsAppIcon className="w-5 h-5 text-[#D48B00] mb-0.5" />
+          <span className="text-xs font-semibold text-gray-800">WhatsApp</span>
         </a>
 
-        {/* Book Cab */}
+        {/* Enquiry */}
         <button
           type="button"
           onClick={handleBookClick}
-          className="flex flex-col items-center justify-center py-2 px-2 rounded-xl bg-amber-600 text-white font-semibold text-xs active:scale-95 transition-all shadow-sm"
-          aria-label="Book Cab Form"
+          className="flex flex-col items-center justify-center py-1.5 px-2 text-[#0A1F44] active:scale-95 transition-transform cursor-pointer"
+          aria-label="Enquiry Form"
         >
-          <CalendarCheck className="w-4 h-4 mb-0.5" />
-          <span>Book Cab</span>
+          <SquarePen className="w-5 h-5 text-[#D48B00] mb-0.5" />
+          <span className="text-xs font-semibold text-gray-800">Enquiry</span>
         </button>
       </div>
     </div>

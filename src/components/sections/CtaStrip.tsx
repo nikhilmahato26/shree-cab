@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MessageCircle } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { COMPANY } from '../../data/cabData';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const CtaStrip: React.FC = () => {
   return (
@@ -74,7 +75,7 @@ export const CtaStrip: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white px-8 py-4 font-black text-xs sm:text-sm uppercase text-white hover:bg-white hover:text-[#0A1F44] transition-all tracking-wider shadow-md"
             >
-              <MessageCircle className="w-4 h-4 text-[#25D366]" /> Book via WhatsApp
+              <WhatsAppIcon className="w-5 h-5 text-[#25D366]" /> Book via WhatsApp
             </a>
           </div>
 

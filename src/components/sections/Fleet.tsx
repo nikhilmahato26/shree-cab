@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Car, Check, Users, Wind, Briefcase, Phone, MessageCircle, Star } from 'lucide-react';
+import { Car, Check, Users, Wind, Briefcase, Phone, Star } from 'lucide-react';
 import { FLEET_DATA, COMPANY } from '../../data/cabData';
 import { useToast } from '../ui/Toast';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const Fleet: React.FC = () => {
   const { showToast } = useToast();
@@ -139,7 +140,7 @@ export const Fleet: React.FC = () => {
                       onClick={() => handleWhatsAppBook(vehicle.name)}
                       className="btn-primary py-2.5 px-3 text-xs uppercase font-extrabold tracking-wider"
                     >
-                      <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
+                      <WhatsAppIcon className="w-3.5 h-3.5" /> WhatsApp
                     </button>
                   </div>
                 </div>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, MapPin, Send, MessageCircle, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, MapPin, Send, Clock, ShieldCheck } from 'lucide-react';
 import { COMPANY } from '../../data/cabData';
 import { useToast } from '../ui/Toast';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -115,7 +116,7 @@ export const Contact: React.FC = () => {
             {/* WhatsApp Card */}
             <div className="bg-white rounded-3xl p-5 border border-gray-100 shadow-card flex items-start gap-4">
               <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0">
-                <MessageCircle className="w-5 h-5 text-emerald-600" />
+                <WhatsAppIcon className="w-6 h-6 text-[#25D366]" />
               </div>
               <div>
                 <h4 className="font-extrabold text-[#0A1F44] text-sm mb-0.5">Quick WhatsApp Booking</h4>
@@ -270,7 +271,7 @@ export const Contact: React.FC = () => {
                     <option value="Temple Pilgrimage Tour">Temple Pilgrimage (Mata no Madh / Koteshwar)</option>
                     <option value="Airport / Railway Transfer">Airport / Railway Station Transfer</option>
                     <option value="Wedding / Event Fleet">Wedding & Event Transportation</option>
-                    <option value="24×7 Hospital & Emergency Cab">24×7 Hospital Emergency Cab</option>
+                    <option value="24×7 Hospital Cab & Tempo Traveller">24×7 Hospital Cab & Tempo Traveller</option>
                   </select>
                 </div>
 

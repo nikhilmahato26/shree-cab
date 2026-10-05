@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Clock, Heart } from 'lucide-react';
 import { COMPANY, FOOTER_LINKS } from '../../data/cabData';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const Footer: React.FC = () => {
   const scrollTo = (href: string) => {
@@ -42,7 +43,7 @@ export const Footer: React.FC = () => {
                 className="w-9 h-9 bg-[#25D366] rounded-full flex items-center justify-center hover:bg-emerald-400 transition-colors shadow-sm"
                 aria-label="WhatsApp"
               >
-                <span className="text-white font-black text-sm">💬</span>
+                <WhatsAppIcon className="w-5 h-5 text-white" />
               </a>
               <a
                 href={COMPANY.socials.facebook}

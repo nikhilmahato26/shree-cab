@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Navigation, Phone, MessageCircle, CheckCircle2, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
+import { ArrowRight, Clock, Navigation, Phone, CheckCircle2, ShieldCheck, Sparkles, MapPin } from 'lucide-react';
 import { ONE_WAY_SERVICES, COMPANY } from '../../data/cabData';
 import { useToast } from '../ui/Toast';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 export const OneWayServices: React.FC = () => {
   const { showToast } = useToast();
@@ -137,7 +138,7 @@ export const OneWayServices: React.FC = () => {
                     onClick={() => handleBookOneWay(service.title, service.fromCity, service.toCity)}
                     className="inline-flex items-center justify-center gap-1.5 py-3 px-3 rounded-xl bg-[#003B95] text-white text-xs font-black uppercase tracking-wider hover:bg-[#0A1F44] transition-colors shadow-sm cursor-pointer"
                   >
-                    <MessageCircle className="w-3.5 h-3.5 text-[#FFD200]" /> Book One-Way
+                    <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" /> Book One-Way
                   </button>
                 </div>
               </div>

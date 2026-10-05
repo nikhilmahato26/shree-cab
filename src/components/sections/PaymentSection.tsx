@@ -75,12 +75,15 @@ export const PaymentSection: React.FC = () => {
           >
             {/* Primary Details Card */}
             <div className="bg-[#0A1F44] rounded-3xl p-7 sm:p-8 text-white shadow-blue border border-white/10">
-              <div className="text-xs font-black uppercase tracking-wider text-[#FFD200] mb-2">
+              <div className="text-xs font-black uppercase tracking-wider text-[#FFD200] mb-1">
                 Verified Business Account
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black mb-6 tracking-tight">
+              <h3 className="text-2xl sm:text-3xl font-black mb-1 tracking-tight">
                 {COMPANY.payment.name}
               </h3>
+              <p className="text-xs sm:text-sm font-semibold text-blue-200 mb-6">
+                Shree Tours & Travels • HDFC Bank (...5701)
+              </p>
 
               <div className="grid sm:grid-cols-2 gap-4 mb-6">
                 <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
@@ -94,9 +97,9 @@ export const PaymentSection: React.FC = () => {
 
                 <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
                   <div className="text-xs font-semibold text-white/70 mb-1">
-                    Direct UPI ID
+                    Direct UPI ID (HDFC)
                   </div>
-                  <div className="text-lg font-black text-[#FFD200]">
+                  <div className="text-base sm:text-lg font-black text-[#FFD200] break-all">
                     {COMPANY.payment.upiId}
                   </div>
                 </div>

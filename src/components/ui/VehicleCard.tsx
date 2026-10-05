@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageCircle, CalendarCheck, Wind, CheckCircle2 } from 'lucide-react';
+import { CalendarCheck, Wind, CheckCircle2 } from 'lucide-react';
 import type { Vehicle } from '../../data/fleet';
 import { getVehicleWhatsAppUrl } from '../../utils/whatsapp';
 import { Button } from './Button';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface VehicleCardProps {
   vehicle: Vehicle;
@@ -90,7 +91,7 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({
             size="md"
             href={whatsappUrl}
             target="_blank"
-            icon={<MessageCircle className="w-4 h-4" />}
+            icon={<WhatsAppIcon className="w-4 h-4 text-white" />}
             className="w-full text-sm font-semibold"
           >
             WhatsApp

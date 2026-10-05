@@ -202,7 +202,7 @@ export const Hero: React.FC = () => {
                   <option value="Dholavira Road to Heaven Tour">Dholavira Road to Heaven Tour</option>
                   <option value="Airport / Railway Station Transfer">Airport / Railway Station Transfer</option>
                   <option value="Mata no Madh & Koteshwar Tour">Mata no Madh & Koteshwar Tour</option>
-                  <option value="Emergency Hospital Ride (24×7)">Emergency Hospital Ride (24×7)</option>
+                  <option value="24×7 Hospital Emergency Cab & Traveller">24×7 Hospital Emergency Cab & Traveller</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-[#0A1F44]">
                   <span className="text-base sm:text-lg animate-bounce">⬇️</span>

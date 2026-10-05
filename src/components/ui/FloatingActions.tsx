@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageCircle, X } from 'lucide-react';
+import { Phone, SquarePen, X } from 'lucide-react';
 import { COMPANY } from '../../data/cabData';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export const FloatingActions: React.FC = () => {
   const [showButton, setShowButton] = useState(false);
@@ -21,6 +22,13 @@ export const FloatingActions: React.FC = () => {
       clearTimeout(tipHideTimer);
     };
   }, []);
+
+  const handleEnquiryClick = () => {
+    const el = document.getElementById('booking') || document.getElementById('contact');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
@@ -62,42 +70,55 @@ export const FloatingActions: React.FC = () => {
               )}
             </AnimatePresence>
 
-            {/* Pulsing WhatsApp Action Button */}
+            {/* Pulsing WhatsApp Action Button with authentic WhatsApp logo */}
             <a
-              href={`https://wa.me/${COMPANY.whatsapp}?text=Hi Shree Cab! I want to book a cab in Kutch.`}
+              href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hi Shree Cab! I want to book a cab in Kutch.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full flex items-center justify-center shadow-[0_8px_25px_rgba(37,211,102,0.45)] hover:scale-108 transition-all animate-whatsapp focus:outline-none focus:ring-4 focus:ring-emerald-300 cursor-pointer"
               aria-label="Chat with Shree Cab on WhatsApp"
             >
-              <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 fill-current" />
+              <WhatsAppIcon className="w-8 h-8 sm:w-9 sm:h-9 text-white" />
             </a>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Mobile Sticky Bottom Action Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 block md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 p-2.5 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-        <div className="grid grid-cols-2 gap-2 max-w-md mx-auto">
+      {/* Mobile Sticky Bottom Action Bar matching user screenshot: Call | WhatsApp | Enquiry */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 block md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 py-1.5 px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+        <div className="grid grid-cols-3 divide-x divide-gray-200 max-w-md mx-auto">
           {/* Call Button */}
           <a
             href={`tel:+91${COMPANY.phone}`}
-            className="flex items-center justify-center gap-1.5 py-3 px-3 rounded-full bg-[#003B95] text-white text-xs font-black uppercase tracking-wider shadow-sm active:scale-97 transition-transform"
+            className="flex flex-col items-center justify-center py-1.5 px-2 text-[#0A1F44] active:scale-95 transition-transform"
+            aria-label="Call Shree Cab"
           >
-            <Phone className="w-4 h-4 text-[#FFD200]" />
-            <span>Call Now</span>
+            <Phone className="w-5 h-5 text-[#D48B00] mb-0.5" />
+            <span className="text-xs font-semibold text-gray-800">Call</span>
           </a>
 
-          {/* WhatsApp Button */}
+          {/* WhatsApp Button with official WhatsApp icon */}
           <a
-            href={`https://wa.me/${COMPANY.whatsapp}?text=Hi Shree Cab! I want to book a cab.`}
+            href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent('Hi Shree Cab! I want to book a cab.')}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-1.5 py-3 px-3 rounded-full bg-[#25D366] text-white text-xs font-black uppercase tracking-wider shadow-sm active:scale-97 transition-transform"
+            className="flex flex-col items-center justify-center py-1.5 px-2 text-[#0A1F44] active:scale-95 transition-transform"
+            aria-label="Chat on WhatsApp"
           >
-            <MessageCircle className="w-4 h-4 fill-current" />
-            <span>WhatsApp</span>
+            <WhatsAppIcon className="w-5 h-5 text-[#D48B00] mb-0.5" />
+            <span className="text-xs font-semibold text-gray-800">WhatsApp</span>
           </a>
+
+          {/* Enquiry Button */}
+          <button
+            type="button"
+            onClick={handleEnquiryClick}
+            className="flex flex-col items-center justify-center py-1.5 px-2 text-[#0A1F44] active:scale-95 transition-transform cursor-pointer"
+            aria-label="Enquiry Form"
+          >
+            <SquarePen className="w-5 h-5 text-[#D48B00] mb-0.5" />
+            <span className="text-xs font-semibold text-gray-800">Enquiry</span>
+          </button>
         </div>
       </div>
     </>

@@ -72,10 +72,10 @@ export const Services: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
                   {/* Floating Badges */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
                     <span
                       className={`text-xs font-bold px-3 py-1 rounded-full border shadow-sm ${getBadgeStyle(
                         service.badge
@@ -84,6 +84,15 @@ export const Services: React.FC = () => {
                       {service.badge}
                     </span>
                   </div>
+
+                  {service.id === 'hospital' && (
+                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#FFD200]/50 shadow-md">
+                      <span className="text-xs">🚐</span>
+                      <span className="text-[11px] font-black text-[#FFD200] tracking-wide">
+                        Traveller Available
+                      </span>
+                    </div>
+                  )}
 
                   <div className="absolute bottom-3 left-4 right-4">
                     <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FFD200] drop-shadow">
@@ -97,9 +106,26 @@ export const Services: React.FC = () => {
                   <h3 className="text-xl font-black text-[#0A1F44] tracking-tight mb-2 group-hover:text-[#003B95] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
                     {service.desc}
                   </p>
+
+                  {/* Traveller Special Feature for Hospital */}
+                  {service.id === 'hospital' && (
+                    <div className="mb-4 bg-emerald-50/90 border border-emerald-200 rounded-2xl p-3 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm">
+                        🚐
+                      </div>
+                      <div className="text-left">
+                        <div className="text-xs font-black text-emerald-950">
+                          Force Tempo Traveller Option
+                        </div>
+                        <p className="text-[11px] text-emerald-800 font-semibold leading-tight">
+                          Spacious seats for patient comfort &amp; accompanying family to Rajkot / Ahmedabad
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Routes Tags */}
                   <div className="space-y-2 mb-2 border-t border-gray-100 pt-3">

@@ -6,7 +6,6 @@ import confetti from 'canvas-confetti';
 import {
   CalendarCheck,
   Send,
-  MessageCircle,
   Phone,
   CheckCircle2,
   Car,
@@ -19,6 +18,7 @@ import {
 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 import { BUSINESS_INFO } from '../../utils/contact';
 import { getBookingWhatsAppUrl, BookingEnquiryPayload } from '../../utils/whatsapp';
 
@@ -179,7 +179,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({ selectedVehicle }) => 
                   size="md"
                   href={getBookingWhatsAppUrl(submittedData)}
                   target="_blank"
-                  icon={<MessageCircle className="w-5 h-5" />}
+                  icon={<WhatsAppIcon className="w-5 h-5 text-white" />}
                   className="w-full sm:w-auto"
                 >
                   Send on WhatsApp

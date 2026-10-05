@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X } from 'lucide-react';
+import { X } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 import { getGeneralWhatsAppUrl } from '../../utils/whatsapp';
 
 export const WhatsAppButton: React.FC = () => {
@@ -49,7 +50,7 @@ export const WhatsAppButton: React.FC = () => {
         {/* Subtle breathing ripple */}
         <span className="absolute -inset-1 rounded-full bg-emerald-500/25 animate-ping pointer-events-none opacity-75" />
 
-        <MessageCircle className="w-7 h-7 relative z-10 transition-transform group-hover:rotate-6" />
+        <WhatsAppIcon className="w-8 h-8 relative z-10 transition-transform group-hover:rotate-6 text-white" />
       </motion.a>
     </div>
   );

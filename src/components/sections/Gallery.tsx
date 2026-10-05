@@ -6,12 +6,12 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  MessageCircle,
   Phone,
   Car,
 } from 'lucide-react';
 import { GALLERY_ITEMS, GalleryItem, COMPANY } from '../../data/cabData';
 import { useToast } from '../ui/useToast';
+import { WhatsAppIcon } from '../ui/WhatsAppIcon';
 
 type CategoryFilter = 'All' | 'SUVs' | 'Sedans' | 'Traveller';
 
@@ -292,7 +292,7 @@ export const Gallery: React.FC = () => {
                   onClick={() => handleInquireCar(currentItem)}
                   className="btn-primary text-xs uppercase font-extrabold px-4 py-2 inline-flex items-center gap-1.5 cursor-pointer"
                 >
-                  <MessageCircle className="w-3.5 h-3.5" /> Book This Cab
+                  <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" /> Book This Cab
                 </button>
               </div>
             </div>
