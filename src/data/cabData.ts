@@ -19,6 +19,7 @@ import heroBg2 from '../assets/hero/hero-bg-2.png';
 import heroBg3 from '../assets/hero/hero-bg-3.png';
 
 import serviceHospitalImg from '../assets/pecab/service-hospital.jpeg';
+import hospitalTravellerImg from '../assets/images/service-hospital-traveller.jpg';
 import serviceTempleImg from '../assets/pecab/service-temple.jpeg';
 import serviceWeddingImg from '../assets/pecab/service-wedding.jpeg';
 import weddingCrystaImg from '../assets/cars/wedding-innova-crysta.jpg';
@@ -216,7 +217,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Healthcare & Emergency',
     title: '24×7 Hospital Cab & Tempo Traveller',
     desc: 'Immediate, reliable transportation for hospital visits, doctor appointments, patient transfers, and emergency travel. AC Cabs & Force Tempo Traveller available 24×7 with spacious stretch-out seating for patients and accompanying family to Rajkot, Ahmedabad, Jamnagar, and local Bhuj hospitals.',
-    images: [serviceHospitalImg, fleetTravellerImg],
+    images: [hospitalTravellerImg, serviceHospitalImg, fleetTravellerImg],
     btnText: 'Book Hospital Cab / Traveller',
     btnColor: 'primary',
     badge: '24×7 Emergency',
