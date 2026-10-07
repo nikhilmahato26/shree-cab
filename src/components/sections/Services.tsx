@@ -70,7 +70,11 @@ export const Services: React.FC = () => {
                     src={service.images[0]}
                     alt={service.title}
                     className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-108 ${
-                      service.id === 'wedding' ? 'object-[center_45%]' : 'object-center'
+                      service.id === 'wedding'
+                        ? 'object-[center_45%]'
+                        : service.id === 'heritage'
+                        ? 'object-[center_35%]'
+                        : 'object-center'
                     }`}
                     loading="lazy"
                   />
@@ -86,6 +90,24 @@ export const Services: React.FC = () => {
                       {service.badge}
                     </span>
                   </div>
+
+                  {service.id === 'rann-tour' && (
+                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-yellow-400/50 shadow-md">
+                      <span className="text-xs">✨</span>
+                      <span className="text-[11px] font-black text-[#FFD200] tracking-wide">
+                        Dhordo White Desert
+                      </span>
+                    </div>
+                  )}
+
+                  {service.id === 'temple' && (
+                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-orange-400/50 shadow-md">
+                      <span className="text-xs">🛕</span>
+                      <span className="text-[11px] font-black text-orange-300 tracking-wide">
+                        Sacred Shrines
+                      </span>
+                    </div>
+                  )}
 
                   {service.id === 'hospital' && (
                     <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-[#FFD200]/50 shadow-md">
@@ -105,6 +127,15 @@ export const Services: React.FC = () => {
                     </div>
                   )}
 
+                  {service.id === 'heritage' && (
+                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-amber-400/50 shadow-md">
+                      <span className="text-xs">🐪</span>
+                      <span className="text-[11px] font-black text-amber-300 tracking-wide">
+                        Mandvi Beach
+                      </span>
+                    </div>
+                  )}
+
                   <div className="absolute bottom-3 left-4 right-4">
                     <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FFD200] drop-shadow">
                       {service.category}
@@ -120,6 +151,40 @@ export const Services: React.FC = () => {
                   <p className="text-gray-500 text-sm leading-relaxed mb-4">
                     {service.desc}
                   </p>
+
+                  {/* Special Feature for Rann Tour */}
+                  {service.id === 'rann-tour' && (
+                    <div className="mb-4 bg-amber-50/90 border border-amber-200 rounded-2xl p-3 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm">
+                        🏜️
+                      </div>
+                      <div className="text-left">
+                        <div className="text-xs font-black text-amber-950">
+                          Dhordo White Desert &amp; Rann Utsav
+                        </div>
+                        <p className="text-[11px] text-amber-900 font-semibold leading-tight">
+                          Sunset at White Rann, camel safaris, Kalo Dungar &amp; handicraft village tours
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Special Feature for Pilgrimage */}
+                  {service.id === 'temple' && (
+                    <div className="mb-4 bg-orange-50/90 border border-orange-200 rounded-2xl p-3 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-orange-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm">
+                        🛕
+                      </div>
+                      <div className="text-left">
+                        <div className="text-xs font-black text-orange-950">
+                          Mata no Madh &amp; Koteshwar Yatras
+                        </div>
+                        <p className="text-[11px] text-orange-900 font-semibold leading-tight">
+                          Devotional packages to sacred Kutch temples, Swaminarayan shrines &amp; Narayan Sarovar
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Traveller Special Feature for Hospital */}
                   {service.id === 'hospital' && (
@@ -150,6 +215,23 @@ export const Services: React.FC = () => {
                         </div>
                         <p className="text-[11px] text-rose-800 font-semibold leading-tight">
                           Fresh flower decorations for Baraat, groom entry &amp; wedding guest coordination
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Special Feature for Heritage */}
+                  {service.id === 'heritage' && (
+                    <div className="mb-4 bg-amber-50/90 border border-amber-200 rounded-2xl p-3 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-amber-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm">
+                        🏖️
+                      </div>
+                      <div className="text-left">
+                        <div className="text-xs font-black text-amber-950">
+                          Mandvi Beach &amp; Vijay Vilas Palace
+                        </div>
+                        <p className="text-[11px] text-amber-800 font-semibold leading-tight">
+                          Camel rides, private beach resorts, coastal wind farms &amp; Harappan UNESCO site
                         </p>
                       </div>
                     </div>

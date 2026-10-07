@@ -26,8 +26,11 @@ import serviceLocalImg from '../assets/pecab/service-local.jpeg';
 import paymentQrImg from '../assets/pecab/payment-qr.jpeg';
 
 import rannImg from '../assets/images/travel-rann.jpg';
+import rannDhordoImg from '../assets/images/rann-utsav-dhordo.jpg';
 import bhujImg from '../assets/images/travel-bhuj.jpg';
 import outstationImg from '../assets/images/travel-outstation.jpg';
+import mandviImg from '../assets/images/travel-mandvi.jpg';
+import pilgrimageImg from '../assets/images/travel-pilgrimage.jpg';
 
 import package1n2dImg from '../assets/packages/rann-utsav-1n2d.jpg';
 import package2n3dImg from '../assets/packages/rann-utsav-2n3d.jpg';
@@ -180,7 +183,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Sightseeing',
     title: 'Rann of Kutch & Desert Tours',
     desc: 'Explore the White Desert, Dhordo Rann Utsav, sunset at Kala Dungar, and cultural handicraft villages with complete comfort.',
-    images: [rannImg, serviceLocalImg],
+    images: [rannDhordoImg, rannImg, serviceLocalImg],
     btnText: 'Book Rann Tour',
     btnColor: 'yellow',
     badge: 'Popular',
@@ -202,7 +205,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Devotional',
     title: 'Pilgrimage & Temple Tours',
     desc: 'Comfortable spiritual tour packages for families and senior devotees to sacred shrines across Kutch and Saurashtra.',
-    images: [serviceTempleImg, bhujImg],
+    images: [pilgrimageImg, serviceTempleImg, bhujImg],
     btnText: 'Book Temple Trip',
     btnColor: 'yellow',
     badge: 'Special',
@@ -239,7 +242,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Heritage',
     title: 'Mandvi & Dholavira Heritage Cabs',
     desc: 'Scenic day tours to Mandvi Beach, Vijay Vilas Palace, 72 Jinalaya, and the ancient UNESCO Harappan site at Dholavira.',
-    images: [bhujImg, rannImg],
+    images: [mandviImg, bhujImg, rannImg],
     btnText: 'Book Heritage Tour',
     btnColor: 'yellow',
     badge: 'Must Visit',
