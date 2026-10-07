@@ -69,7 +69,9 @@ export const Services: React.FC = () => {
                   <img
                     src={service.images[0]}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                    className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-108 ${
+                      service.id === 'wedding' ? 'object-[center_45%]' : 'object-center'
+                    }`}
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -90,6 +92,15 @@ export const Services: React.FC = () => {
                       <span className="text-xs">🚐</span>
                       <span className="text-[11px] font-black text-[#FFD200] tracking-wide">
                         Traveller Available
+                      </span>
+                    </div>
+                  )}
+
+                  {service.id === 'wedding' && (
+                    <div className="absolute top-4 right-4 z-10 flex items-center gap-1.5 bg-[#0A1F44]/90 backdrop-blur-md px-3 py-1 rounded-full border border-pink-400/50 shadow-md">
+                      <span className="text-xs">💐</span>
+                      <span className="text-[11px] font-black text-pink-300 tracking-wide">
+                        Decorated Cars
                       </span>
                     </div>
                   )}
@@ -122,6 +133,23 @@ export const Services: React.FC = () => {
                         </div>
                         <p className="text-[11px] text-emerald-800 font-semibold leading-tight">
                           Spacious seats for patient comfort &amp; accompanying family to Rajkot / Ahmedabad
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Special Feature for Wedding */}
+                  {service.id === 'wedding' && (
+                    <div className="mb-4 bg-pink-50/90 border border-pink-200 rounded-2xl p-3 flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-pink-600 text-white flex items-center justify-center shrink-0 text-base shadow-sm">
+                        🌸
+                      </div>
+                      <div className="text-left">
+                        <div className="text-xs font-black text-pink-950">
+                          Decorated Innova Crysta &amp; Fleet
+                        </div>
+                        <p className="text-[11px] text-rose-800 font-semibold leading-tight">
+                          Fresh flower decorations for Baraat, groom entry &amp; wedding guest coordination
                         </p>
                       </div>
                     </div>

@@ -21,6 +21,7 @@ import heroBg3 from '../assets/hero/hero-bg-3.png';
 import serviceHospitalImg from '../assets/pecab/service-hospital.jpeg';
 import serviceTempleImg from '../assets/pecab/service-temple.jpeg';
 import serviceWeddingImg from '../assets/pecab/service-wedding.jpeg';
+import weddingCrystaImg from '../assets/cars/wedding-innova-crysta.jpg';
 import serviceLocalImg from '../assets/pecab/service-local.jpeg';
 import paymentQrImg from '../assets/pecab/payment-qr.jpeg';
 
@@ -227,7 +228,7 @@ export const SERVICES_DATA: ServiceItem[] = [
     category: 'Events',
     title: 'Wedding & Event Transportation',
     desc: 'Dedicated fleet coordination for marriage processions, guest pickup & drop, corporate conferences, and VIP travel.',
-    images: [serviceWeddingImg],
+    images: [weddingCrystaImg, serviceWeddingImg],
     btnText: 'Book Wedding Fleet',
     btnColor: 'primary',
     badge: 'Special',
@@ -907,6 +908,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'SUVs',
     caption: 'Executive white Toyota Innova Crysta luxury SUV for VIP travel, corporate tours, and resort trips.',
     vehicleName: 'Toyota Innova Crysta',
+  },
+  {
+    id: 'gallery-wedding-crysta',
+    src: weddingCrystaImg,
+    title: 'Decorated Toyota Innova Crysta (Wedding Special)',
+    category: 'SUVs',
+    caption: 'Fresh floral-decorated luxury Toyota Innova Crysta for wedding baraat, groom entry, and family celebrations across Kutch.',
+    vehicleName: 'Wedding Innova Crysta',
   },
   {
     id: 'gallery-09',
