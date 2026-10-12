@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
     const date = formData.get('date');
     const rawPackage = (formData.get('package') as string) || '';
     const tripPackage =
-      rawPackage === 'Book Your Ride Here ⬇️' || !rawPackage
+      rawPackage.toLowerCase().includes('book your ride here') || !rawPackage
         ? 'Standard Cab Service'
         : rawPackage;
 
@@ -185,20 +185,19 @@ export const Hero: React.FC = () => {
               <div className="relative">
                 <select
                   name="package"
-                  defaultValue="Book Your Ride Here ⬇️"
+                  defaultValue="BOOK YOUR RIDE HERE ⬇️"
                   className="h-13 sm:h-14 w-full rounded-xl border-2 border-transparent bg-white px-4 pr-10 text-center sm:text-left text-sm sm:text-base font-black text-[#0A1F44] outline-none shadow-sm focus:border-[#0A1F44] focus:ring-4 focus:ring-[#003B95]/20 cursor-pointer appearance-none transition-all hover:bg-white/95"
                 >
-                  <option value="Book Your Ride Here ⬇️">Book Your Ride Here ⬇️</option>
-                  <option value="One-Way Cab: AMDAVAD ➜ BHUJ-KUTCH">⚡ One-Way: AMDAVAD ➜ BHUJ-KUTCH</option>
-                  <option value="One-Way Cab: BHUJ-KUTCH ➜ AMDAVAD">⚡ One-Way: BHUJ-KUTCH ➜ AMDAVAD</option>
-                  <option value="One-Way Cab: RAJKOT ➜ BHUJ-KUTCH">⚡ One-Way: RAJKOT ➜ BHUJ-KUTCH</option>
-                  <option value="One-Way Cab: BHUJ-KUTCH ➜ RAJKOT">⚡ One-Way: BHUJ-KUTCH ➜ RAJKOT</option>
+                  <option value="BOOK YOUR RIDE HERE ⬇️">BOOK YOUR RIDE HERE ⬇️</option>
+                  <option value="Round trip">Round trip</option>
+                  <option value="One-way">One-way</option>
+                  <option value="Outstation highway long trip">Outstation highway long trip</option>
+                  <option value="Kutch tour package">Kutch tour package</option>
+                  <option value="Gujarat tour: Temple and Motera Sun temple and old sightseeing visit">Gujarat tour: Temple and Motera Sun temple and old sightseeing visit</option>
                   <option value="Rann of Kutch & White Desert Tour">Rann of Kutch & White Desert Tour</option>
                   <option value="Rann Utsav Package (1N/2D - ₹8,000/PP)">Rann Utsav Package (1N/2D - ₹8,000/PP)</option>
                   <option value="Grand Rann Utsav Tour (2N/3D - ₹12,450/PP)">Grand Rann Utsav Tour (2N/3D - ₹12,450/PP)</option>
                   <option value="Bhuj Local City Package">Bhuj Local City Package</option>
-                  <option value="Outstation Highway Trip">Outstation Highway Trip</option>
-                  <option value="Mandvi Beach & Palace Tour">Mandvi Beach & Palace Tour</option>
                   <option value="Dholavira Road to Heaven Tour">Dholavira Road to Heaven Tour</option>
                   <option value="Airport / Railway Station Transfer">Airport / Railway Station Transfer</option>
                   <option value="Mata no Madh & Koteshwar Tour">Mata no Madh & Koteshwar Tour</option>

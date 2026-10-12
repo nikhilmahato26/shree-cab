@@ -141,7 +141,7 @@ export const HERO_VEHICLES: HeroVehicleOption[] = [
   { name: 'Maruti Suzuki Dzire', type: 'Compact Sedan', seats: 5, image: dzireImg },
   { name: 'Maruti Suzuki Ertiga', type: 'SUV', seats: 7, image: ertigaImg },
   { name: 'Luxurious Urbania Vans', type: 'Luxury Van', seats: 12, image: urbaniaPng },
-  { name: 'Toyota Innova Crysta', type: 'Premium SUV', seats: 7, image: innovaImg },
+  { name: 'Toyota Innova Crysta', type: 'Premium SUV', seats: 8, image: innovaImg },
   { name: 'Tempo Traveller', type: 'Traveller', seats: 12, image: travellerImg },
 ];
 
@@ -295,7 +295,7 @@ export const FLEET_DATA: FleetVehicle[] = [
     image: fleetErtigaImg,
     seats: 7,
     ac: true,
-    pricePerKm: 14,
+    pricePerKm: 15,
     icon: '🚙',
     suitableFor: ['Family Tours', 'Small Groups', 'Airport Pickups'],
     specs: ['7 Seater (6+1)', 'Dual AC Vents', 'Foldable Seats for Luggage'],
@@ -305,12 +305,12 @@ export const FLEET_DATA: FleetVehicle[] = [
     name: 'Toyota Innova Crysta',
     type: 'Executive SUV',
     image: fleetInnovaImg,
-    seats: 7,
+    seats: 8,
     ac: true,
     pricePerKm: 20,
     icon: '🚙',
     suitableFor: ['Rann of Kutch Tours', 'Outstation Travel', 'VIP & NRI Travel'],
-    specs: ['7 Seater (6+1)', 'Captain Seats & Recliner', 'Large Trunk Capacity', 'Climate Control'],
+    specs: ['8 Seater (7+1)', 'Spacious Reclining Seats', 'Large Trunk Capacity', 'Climate Control'],
     featured: true,
   },
   {
